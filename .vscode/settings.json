@@ -1,0 +1,9 @@
+{
+    "cmake.configureOnOpen": true,
+    "cmake.useCMakePresets": "never",
+    "cmake.generator": "Visual Studio 18 2026",
+    "cmake.configureArgs": [
+        "-DCMAKE_PREFIX_PATH=C:/Qt/6.11.1/msvc2022_64"
+    ],
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+}

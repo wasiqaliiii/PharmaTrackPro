@@ -1,0 +1,40 @@
+^D:\MEGATRONICS\PHARMATRACKPRO\BUILD\CMAKEFILES\C22DAE49959F202D1A099D4F67F88086\TIMESTAMP_(CONFIG).RULE
+setlocal
+cd D:\Megatronics\PharmaTrackPro\build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen D:/Megatronics/PharmaTrackPro/build/CMakeFiles/PharmaTrackPro_autogen.dir/AutogenInfo.json Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/timestamp_Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_transform_depfile "Visual Studio 18 2026" MSBuildAdditionalInputs D:/Megatronics/PharmaTrackPro D:/Megatronics/PharmaTrackPro D:/Megatronics/PharmaTrackPro/build D:/Megatronics/PharmaTrackPro/build D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/deps_Debug D:/Megatronics/PharmaTrackPro/build/CMakeFiles/d/1f2ef155e55fa3c61367882a32fd9c060f04b2448b7040a6bf466cbebef63a1f.AdditionalInputs
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\MEGATRONICS\PHARMATRACKPRO\BUILD\CMAKEFILES\C45CCB676FF306A6E04B38D93A118FEA\PHARMATRACKPRO_AUTOGEN.RULE
+setlocal
+cd D:\Megatronics\PharmaTrackPro\build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\MEGATRONICS\PHARMATRACKPRO\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Megatronics/PharmaTrackPro -BD:/Megatronics/PharmaTrackPro/build --check-stamp-file D:/Megatronics/PharmaTrackPro/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

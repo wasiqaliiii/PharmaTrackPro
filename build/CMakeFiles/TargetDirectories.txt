@@ -1,0 +1,5 @@
+D:/Megatronics/PharmaTrackPro/build/CMakeFiles/PharmaTrackPro.dir
+D:/Megatronics/PharmaTrackPro/build/CMakeFiles/PharmaTrackPro_autogen_timestamp_deps.dir
+D:/Megatronics/PharmaTrackPro/build/CMakeFiles/PharmaTrackPro_autogen.dir
+D:/Megatronics/PharmaTrackPro/build/CMakeFiles/ALL_BUILD.dir
+D:/Megatronics/PharmaTrackPro/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Megatronics\PharmaTrackPro\build\CMakeFiles\c45ccb676ff306a6e04b38d93a118fea\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F338D2C3-7BBC-3573-BBE8-767849B64FB0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

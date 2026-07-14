@@ -1,0 +1,10 @@
+^D:\MEGATRONICS\PHARMATRACKPRO\BUILD\CMAKEFILES\C45CCB676FF306A6E04B38D93A118FEA\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Megatronics/PharmaTrackPro -BD:/Megatronics/PharmaTrackPro/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
