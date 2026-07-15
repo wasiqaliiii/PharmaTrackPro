@@ -35,16 +35,74 @@ include_directories(
 )
 
 set(SOURCES
+
+    # App
     App/main.cpp
     App/Application.cpp
 
+    # UI
     UI/MainWindow.cpp
+    UI/DashboardWindow.cpp
+    UI/ScannerWindow.cpp
+    UI/GeneratorWindow.cpp
+    UI/ReportsWindow.cpp
+    UI/SettingsWindow.cpp
+
+    # Hardware
+    Hardware/SerialPortManager.cpp
+    Hardware/ScannerManager.cpp
+
+    # Services
+    Services/ScannerService.cpp
+    Services/VerificationService.cpp
+
+    # Models
+    Models/SerialNumber.cpp
+    Models/ScanLog.cpp
+    Models/Batch.cpp
+    Models/Product.cpp
+    Models/User.cpp
+    Models/Report.cpp
+
+    # Utils
+    Utils/PathManager.cpp
+    Utils/FileManager.cpp
+    Utils/JsonManager.cpp
 )
 
 set(HEADERS
+
+    # App
     App/Application.h
 
+    # UI
     UI/MainWindow.h
+    UI/DashboardWindow.h
+    UI/ScannerWindow.h
+    UI/GeneratorWindow.h
+    UI/ReportsWindow.h
+    UI/SettingsWindow.h
+
+    # Hardware
+    Hardware/SerialPortManager.h
+    Hardware/ScannerManager.h
+
+    # Services
+    Services/ScannerService.h
+    Services/VerificationService.h
+
+    # Models
+    Models/SerialNumber.h
+    Models/ScanLog.h
+    Models/Batch.h
+    Models/Product.h
+    Models/User.h
+    Models/Report.h
+
+    # Utils
+    Utils/PathManager.h
+    Utils/FileManager.h
+    Utils/JsonManager.h
 )
 
 set(UIS

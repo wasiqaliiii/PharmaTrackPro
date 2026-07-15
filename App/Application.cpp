@@ -11,7 +11,7 @@ Application::Application(int& argc, char* argv[])
 
 int Application::run()
 {
-    PharmaTrack::MainWindow window;
+    MainWindow window;
 
     window.show();
 

@@ -56,85 +56,23 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/stdio.h \
 	C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/stdlib.h \
 	C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/string.h \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeCXXCompiler.cmake.in \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeCXXInformation.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeCommonLanguageInclude.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeCompilerIdDetection.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerSupport.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeDetermineRCCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeFindDependencyMacro.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeGenericSystem.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeInitializeConfigs.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeLanguageInformation.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeParseImplicitIncludeInfo.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeParseImplicitLinkInfo.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeParseLibraryArchitecture.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeRCCompiler.cmake.in \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeRCInformation.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeSystem.cmake.in \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInformation.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeSystemSpecificInitialize.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeTestCompilerCommon.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CMakeTestRCCompiler.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CheckCXXCompilerFlag.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CheckCXXSourceCompiles.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CheckIncludeFileCXX.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CheckLibraryExists.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Borland-DetermineCompiler.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Cray-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Diab-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/GHS-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/IAR-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Intel-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/MSVC-CXX.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/MSVC-DetermineCompiler.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/MSVC.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/PGI-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/PellesC-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Renesas-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/SCO-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/TI-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/CompilerId/VS-10.vcxproj.in \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/FindPackageHandleStandardArgs.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/FindPackageMessage.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/FindThreads.cmake \
@@ -142,22 +80,24 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/GNUInstallDirs.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Internal/CMakeCXXLinkerInformation.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Internal/CMakeInspectCXXLinker.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Internal/CheckCompilerFlag.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Internal/CheckFlagCommonConfig.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Internal/CheckSourceCompiles.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Internal/FeatureTesting.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Linker/MSVC-CXX.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Linker/MSVC.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-MSVC-CXX.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/Linker/Windows-MSVC.cmake \
-	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/Windows-Determine-CXX.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/Windows-Initialize.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/Windows-MSVC-CXX.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/Windows-MSVC.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/Windows.cmake \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/WindowsPaths.cmake \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QDateTime \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QHash \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QObject \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QString \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QStringList \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QVector \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/q17memory.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20bit.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20functional.h \
@@ -182,6 +122,7 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearrayalgorithms.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearraylist.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearrayview.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcalendar.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qchar.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcheckedint_impl.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcompare.h \
@@ -196,6 +137,7 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontiguouscache.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdarwinhelpers.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdatastream.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdatetime.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdebug.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qendian.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qexceptionhandling.h \
@@ -209,12 +151,14 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qglobalstatic.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qhash.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qhashfunctions.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qiodevice.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qiodevicebase.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qiterable.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qiterator.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlatin1stringview.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qline.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlist.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlocale.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlogging.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmalloc.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmap.h \
@@ -233,6 +177,8 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qpair.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qpoint.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qprocessordetection.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qproperty.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qpropertyprivate.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qrect.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qrefcount.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qscopedpointer.h \
@@ -283,6 +229,7 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qutf8stringview.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qvariant.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qvarlengtharray.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qvector.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qversiontagging.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qyieldcpu.h \
@@ -312,7 +259,14 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtransform.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qwindowdefs_win.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/QSerialPort \
+	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/QSerialPortInfo \
+	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialport.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialportglobal.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialportinfo.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qtserialportexports.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/QMainWindow \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/QWidget \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qmainwindow.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qsizepolicy.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtabwidget.h \
@@ -606,8 +560,44 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	D:/Megatronics/PharmaTrackPro/App/Application.h \
 	D:/Megatronics/PharmaTrackPro/App/main.cpp \
 	D:/Megatronics/PharmaTrackPro/CMakeLists.txt \
+	D:/Megatronics/PharmaTrackPro/Hardware/ScannerManager.cpp \
+	D:/Megatronics/PharmaTrackPro/Hardware/ScannerManager.h \
+	D:/Megatronics/PharmaTrackPro/Hardware/SerialPortManager.cpp \
+	D:/Megatronics/PharmaTrackPro/Hardware/SerialPortManager.h \
+	D:/Megatronics/PharmaTrackPro/Models/Batch.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/Batch.h \
+	D:/Megatronics/PharmaTrackPro/Models/Product.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/Product.h \
+	D:/Megatronics/PharmaTrackPro/Models/Report.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/Report.h \
+	D:/Megatronics/PharmaTrackPro/Models/ScanLog.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/ScanLog.h \
+	D:/Megatronics/PharmaTrackPro/Models/SerialNumber.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/SerialNumber.h \
+	D:/Megatronics/PharmaTrackPro/Models/User.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/User.h \
+	D:/Megatronics/PharmaTrackPro/Services/ScannerService.cpp \
+	D:/Megatronics/PharmaTrackPro/Services/ScannerService.h \
+	D:/Megatronics/PharmaTrackPro/Services/VerificationService.cpp \
+	D:/Megatronics/PharmaTrackPro/Services/VerificationService.h \
+	D:/Megatronics/PharmaTrackPro/UI/DashboardWindow.cpp \
+	D:/Megatronics/PharmaTrackPro/UI/DashboardWindow.h \
+	D:/Megatronics/PharmaTrackPro/UI/GeneratorWindow.cpp \
+	D:/Megatronics/PharmaTrackPro/UI/GeneratorWindow.h \
 	D:/Megatronics/PharmaTrackPro/UI/MainWindow.cpp \
 	D:/Megatronics/PharmaTrackPro/UI/MainWindow.h \
+	D:/Megatronics/PharmaTrackPro/UI/ReportsWindow.cpp \
+	D:/Megatronics/PharmaTrackPro/UI/ReportsWindow.h \
+	D:/Megatronics/PharmaTrackPro/UI/ScannerWindow.cpp \
+	D:/Megatronics/PharmaTrackPro/UI/ScannerWindow.h \
+	D:/Megatronics/PharmaTrackPro/UI/SettingsWindow.cpp \
+	D:/Megatronics/PharmaTrackPro/UI/SettingsWindow.h \
+	D:/Megatronics/PharmaTrackPro/Utils/FileManager.cpp \
+	D:/Megatronics/PharmaTrackPro/Utils/FileManager.h \
+	D:/Megatronics/PharmaTrackPro/Utils/JsonManager.cpp \
+	D:/Megatronics/PharmaTrackPro/Utils/JsonManager.h \
+	D:/Megatronics/PharmaTrackPro/Utils/PathManager.cpp \
+	D:/Megatronics/PharmaTrackPro/Utils/PathManager.h \
 	D:/Megatronics/PharmaTrackPro/build/CMakeFiles/4.4.0/CMakeCXXCompiler.cmake \
 	D:/Megatronics/PharmaTrackPro/build/CMakeFiles/4.4.0/CMakeRCCompiler.cmake \
 	D:/Megatronics/PharmaTrackPro/build/CMakeFiles/4.4.0/CMakeSystem.cmake \
