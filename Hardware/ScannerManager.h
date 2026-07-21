@@ -1,7 +1,10 @@
 #pragma once
 
 #include <QObject>
-#include "SerialPortManager.h"
+
+#include "../Hardware/Drivers/ScannerDriver.h"
+#include "../Hardware/Drivers/EthernetDriver.h"
+#include "../Hardware/Drivers/SerialDriver.h"
 
 namespace PharmaTrack
 {
@@ -11,25 +14,102 @@ class ScannerManager : public QObject
     Q_OBJECT
 
 public:
-    explicit ScannerManager(QObject* parent = nullptr);
 
-    QStringList availablePorts() const;
-    bool isConnected() const;
-    bool connectScanner(const QString& port);
+    explicit ScannerManager(
+            QObject* parent = nullptr);
+
+    ~ScannerManager();
+
+    //////////////////////////////////////////////////////
+    /// Driver
+    //////////////////////////////////////////////////////
+
+    bool connectScanner(
+            const QString& ipAddress,
+            quint16 port);
 
     void disconnectScanner();
 
+    bool isConnected() const;
+
+    bool send(
+            const QByteArray& data);
+
+    //////////////////////////////////////////////////////
+    /// Information
+    //////////////////////////////////////////////////////
+
+    ScannerDriver* activeDriver() const;
+
 signals:
-    void qrScanned(const QString& qr);
+
+    //////////////////////////////////////////////////////
+    /// Connection
+    //////////////////////////////////////////////////////
+
     void connected();
+
     void disconnected();
-    void errorOccurred(const QString& error);
+
+    void connectionLost();
+
+    //////////////////////////////////////////////////////
+    /// Data
+    //////////////////////////////////////////////////////
+
+    void dataReceived(
+            const QByteArray& data);
+
+    //////////////////////////////////////////////////////
+    /// Error
+    //////////////////////////////////////////////////////
+
+    void errorOccurred(
+            const QString& error);
 
 private slots:
-    void processIncomingData(const QByteArray& data);
+
+    //////////////////////////////////////////////////////
+    /// Driver
+    //////////////////////////////////////////////////////
+
+    void onConnected();
+
+    void onDisconnected();
+
+    void onConnectionLost();
+
+    void onDataReceived(
+            const QByteArray& data);
+
+    void onErrorOccurred(
+            const QString& error);
 
 private:
-    SerialPortManager m_serialManager;
+
+    //////////////////////////////////////////////////////
+    /// Helpers
+    //////////////////////////////////////////////////////
+
+    void connectDriverSignals();
+
+    void disconnectDriverSignals();
+
+private:
+
+    //////////////////////////////////////////////////////
+    /// Drivers
+    //////////////////////////////////////////////////////
+
+    EthernetDriver* m_ethernetDriver;
+
+    SerialDriver* m_serialDriver;
+
+    //////////////////////////////////////////////////////
+    /// Active Driver
+    //////////////////////////////////////////////////////
+
+    ScannerDriver* m_activeDriver;
 };
 
 }

@@ -1,0 +1,137 @@
+#pragma once
+
+#include <QObject>
+#include <QHostAddress>
+#include <QList>
+#include <QTimer>
+
+#include "../Models/ScannerInfo.h"
+
+namespace PharmaTrack
+{
+
+class ScannerDiscoveryService : public QObject
+{
+    Q_OBJECT
+
+public:
+
+    explicit ScannerDiscoveryService(
+            QObject* parent = nullptr);
+
+    ~ScannerDiscoveryService();
+
+    //////////////////////////////////////////////////////
+    /// Discovery
+    //////////////////////////////////////////////////////
+
+    void startDiscovery(
+            const QHostAddress& subnetAddress,
+            int prefixLength,
+            quint16 scannerPort);
+
+    void stopDiscovery();
+
+    bool isDiscovering() const;
+
+    //////////////////////////////////////////////////////
+    /// Results
+    //////////////////////////////////////////////////////
+
+    const QList<ScannerInfo>&
+    discoveredScanners() const;
+
+signals:
+
+    //////////////////////////////////////////////////////
+    /// Discovery
+    //////////////////////////////////////////////////////
+
+    void discoveryStarted();
+
+    void discoveryFinished();
+
+    //////////////////////////////////////////////////////
+    /// Scanner
+    //////////////////////////////////////////////////////
+
+    void scannerDiscovered(
+            const ScannerInfo& scanner);
+
+    //////////////////////////////////////////////////////
+    /// Progress
+    //////////////////////////////////////////////////////
+
+    void progressChanged(
+            int current,
+            int total);
+
+    //////////////////////////////////////////////////////
+    /// Errors
+    //////////////////////////////////////////////////////
+
+    void errorOccurred(
+            const QString& error);
+
+private slots:
+
+    //////////////////////////////////////////////////////
+    /// Discovery
+    //////////////////////////////////////////////////////
+
+    void discoverNext();
+
+private:
+
+    //////////////////////////////////////////////////////
+    /// Helpers
+    //////////////////////////////////////////////////////
+
+    void clearResults();
+
+    void addScanner(
+            const ScannerInfo& scanner);
+
+    bool isScannerAvailable(
+            const QHostAddress& address);
+
+    quint32 ipToUInt(
+            const QHostAddress& address) const;
+
+    QHostAddress uintToIp(
+            quint32 value) const;
+
+private:
+
+    //////////////////////////////////////////////////////
+    /// Results
+    //////////////////////////////////////////////////////
+
+    QList<ScannerInfo> m_scanners;
+
+    //////////////////////////////////////////////////////
+    /// Discovery
+    //////////////////////////////////////////////////////
+
+    QTimer* m_discoveryTimer;
+
+    QHostAddress m_subnetAddress;
+
+    int m_prefixLength = 24;
+
+    quint16 m_scannerPort = 0;
+
+    quint32 m_startAddress = 0;
+
+    quint32 m_endAddress = 0;
+
+    quint32 m_currentAddress = 0;
+
+    //////////////////////////////////////////////////////
+    /// State
+    //////////////////////////////////////////////////////
+
+    bool m_discovering = false;
+};
+
+}

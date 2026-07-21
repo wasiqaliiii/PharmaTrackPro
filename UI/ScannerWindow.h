@@ -1,138 +1,192 @@
 #pragma once
 
-#include <QWidget>
+#include <QMainWindow>
+#include <QGridLayout>
+#include <QPlainTextEdit>
 
 QT_BEGIN_NAMESPACE
 
-class QComboBox;
-class QPushButton;
 class QLabel;
+class QPushButton;
 class QTableWidget;
+class QGroupBox;
 class QFrame;
-class QVBoxLayout;
 
 QT_END_NAMESPACE
 
 namespace PharmaTrack
 {
 
+class ScannerManager;
 class ScannerService;
 
-class ScannerWindow : public QWidget
+class ScannerWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit ScannerWindow(QWidget* parent = nullptr);
+
+    explicit ScannerWindow(
+            QWidget* parent = nullptr);
+
     ~ScannerWindow();
+
+    //////////////////////////////////////////////////////
+    /// Services
+    //////////////////////////////////////////////////////
+
+    void setScannerManager(
+            ScannerManager* manager);
+
+    void setScannerService(
+            ScannerService* service);
 
 private slots:
 
-    void loadBatch();
+    //////////////////////////////////////////////////////
+    /// Scanner
+    //////////////////////////////////////////////////////
 
-    void refreshPorts();
+    void onConnected();
+
+    void onDisconnected();
+
+    void onConnectionLost();
+
+    void onScanReceived(
+            const QString& code);
+
+    //////////////////////////////////////////////////////
+    /// Validation
+    //////////////////////////////////////////////////////
+
+    void onBatchNotLoaded(
+            const QString& code);
+
+    void onCodeFound(
+            const QString& code);
+
+    void onCodeNotFound(
+            const QString& code);
+
+    void onDuplicateCode(
+            const QString& code);
+
+    //////////////////////////////////////////////////////
+    /// Buttons
+    //////////////////////////////////////////////////////
+
+    void discoverScanner();
 
     void connectScanner();
 
     void disconnectScanner();
 
-    void startScanning();
+    void clearHistory();
 
 private:
 
-    void setupUi();
+    //////////////////////////////////////////////////////
+    /// UI
+    //////////////////////////////////////////////////////
 
-    void createBatchSection();
+    void createUi();
 
-    void createScannerSection();
+    void createStatusPanel();
 
-    void createResultSection();
+    void createCurrentScanPanel();
 
-    void createStatisticsSection();
+    void createHistoryPanel();
 
-    void createActivitySection();
+    void createBottomPanel();
 
-    void applyTheme();
+    void createConnections();
 
-    void loadAvailableBatches();
+    void applyStyle();
+
+    //////////////////////////////////////////////////////
+    /// Helpers
+    //////////////////////////////////////////////////////
+
+    void addHistoryItem(
+        const QString& code,
+        const QString& status,
+        const QString& batch,
+        const QString& remarks);
+    void setConnectionStatus(
+            const QString& status);
+
+    void setActivityStatus(
+            const QString& activity);
+
+    void setValidationStatus(
+            const QString& status);
 
 private:
 
-    //--------------------------------------------------
-    // Layout
-    //--------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Services
+    //////////////////////////////////////////////////////
 
-    QVBoxLayout* m_mainLayout;
+    ScannerManager* m_scannerManager = nullptr;
 
-    //--------------------------------------------------
-    // Batch Section
-    //--------------------------------------------------
+    ScannerService* m_scannerService = nullptr;
+int m_lastHistoryRow = -1; 
+    //////////////////////////////////////////////////////
+    /// Main Panels
+    //////////////////////////////////////////////////////
 
-    QFrame* m_batchFrame;
+    QGroupBox* m_statusPanel = nullptr;
 
-    QComboBox* m_batchCombo;
+    QGroupBox* m_currentScanPanel = nullptr;
 
-    QPushButton* m_loadBatchButton;
+    QGroupBox* m_historyPanel = nullptr;
 
-    QLabel* m_batchStatusLabel;
+    QFrame* m_bottomPanel = nullptr;
 
-    //--------------------------------------------------
-    // Scanner Section
-    //--------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Status Panel
+    //////////////////////////////////////////////////////
 
-    QFrame* m_scannerFrame;
+    QLabel* m_connectionLabel = nullptr;
 
-    QComboBox* m_portCombo;
+    QLabel* m_activityLabel = nullptr;
 
-    QPushButton* m_refreshPortsButton;
+    QLabel* m_driverLabel = nullptr;
 
-    QPushButton* m_connectButton;
+    QLabel* m_scannerLabel = nullptr;
 
-    QPushButton* m_disconnectButton;
+    QLabel* m_ipLabel = nullptr;
 
-    QPushButton* m_startScanningButton;
+    QLabel* m_heartbeatLabel = nullptr;
 
-    QLabel* m_scannerStatusLabel;
+    //////////////////////////////////////////////////////
+    /// Current Scan
+    //////////////////////////////////////////////////////
 
-    //--------------------------------------------------
-    // Result Section
-    //--------------------------------------------------
+    QPlainTextEdit* m_qrCodeEdit = nullptr;
 
-    QFrame* m_resultFrame;
+    QLabel* m_scanTimeLabel = nullptr;
 
-    QLabel* m_lastCodeLabel;
+    QLabel* m_validationLabel = nullptr;
 
-    QLabel* m_resultLabel;
+    //////////////////////////////////////////////////////
+    /// History
+    //////////////////////////////////////////////////////
 
-    //--------------------------------------------------
-    // Statistics Section
-    //--------------------------------------------------
+    QTableWidget* m_historyTable = nullptr;
 
-    QFrame* m_statisticsFrame;
+    //////////////////////////////////////////////////////
+    /// Buttons
+    //////////////////////////////////////////////////////
 
-    QLabel* m_totalLabel;
+    QPushButton* m_discoverButton = nullptr;
 
-    QLabel* m_acceptedLabel;
+    QPushButton* m_connectButton = nullptr;
 
-    QLabel* m_rejectedLabel;
+    QPushButton* m_disconnectButton = nullptr;
 
-    QLabel* m_duplicateLabel;
-
-    QLabel* m_remainingLabel;
-
-    //--------------------------------------------------
-    // Activity Section
-    //--------------------------------------------------
-
-    QFrame* m_activityFrame;
-
-    QTableWidget* m_activityTable;
-
-    //--------------------------------------------------
-    // Services
-    //--------------------------------------------------
-
-    ScannerService* m_scannerService;
+    QPushButton* m_clearHistoryButton = nullptr;
 };
 
-}
+} // namespace PharmaTrack

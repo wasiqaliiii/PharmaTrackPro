@@ -4,10 +4,12 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/atomic \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/cassert \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/chrono \
+  C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/climits \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/cmath \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/concurrencysal.h \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/cstddef \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/cstdint \
+  C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/cstdlib \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/cstring \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/functional \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/initializer_list \
@@ -21,12 +23,15 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/numeric \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/optional \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/sal.h \
+  C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/set \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/stdarg.h \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/stdbool.h \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/string \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/string_view \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/tuple \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/type_traits \
+  C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/unordered_map \
+  C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/unordered_set \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/utility \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/vadefs.h \
   C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include/variant \
@@ -42,21 +47,29 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/corecrt_memcpy_s.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/corecrt_memory.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/corecrt_search.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/corecrt_stdio_config.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/corecrt_wstdio.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/corecrt_wstdlib.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/corecrt_wstring.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/errno.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/stddef.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/stdio.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/stdlib.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/string.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/QObject \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/QTimer \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20bit.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20functional.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20iterator.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20memory.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20type_traits.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20utility.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q23type_traits.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/q23utility.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qabstracteventdispatcher.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qalgorithms.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qalloc.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qanystringview.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qarraydata.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qarraydataops.h \
@@ -65,6 +78,7 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qatomic.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearray.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearrayalgorithms.h \
@@ -80,8 +94,12 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontainerfwd.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontainertools_impl.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdeadlinetimer.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdebug.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qeventloop.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qflags.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qfloat16.h \
@@ -91,6 +109,7 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qgenericatomic.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qglobal.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qglobalstatic.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qhash.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qhashfunctions.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qiodevice.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qiodevicebase.h \
@@ -100,6 +119,7 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlist.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlogging.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmalloc.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmap.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmath.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmetacontainer.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmetatype.h \
@@ -118,7 +138,11 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qrefcount.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qscopedpointer.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qscopeguard.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qset.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qshareddata.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qshareddata_impl.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qsharedpointer.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qsharedpointer_impl.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qspan.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qstdlibdetection.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qstring.h \
@@ -144,7 +168,9 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtdeprecationdefinitions.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtenvironmentvariables.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtextstream.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtformat_impl.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtimer.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtnoop.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtpreprocessorsupport.h \
@@ -156,13 +182,24 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/3M43WZ4
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtypes.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qutf8stringview.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qvariant.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qvarlengtharray.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/QTcpSocket \
+  C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qabstractsocket.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qhostaddress.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qtcpsocket.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qtnetwork-config.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qtnetworkexports.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qtnetworkglobal.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/QSerialPort \
   C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/QSerialPortInfo \
   C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialport.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialportglobal.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialportinfo.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qtserialportexports.h \
-  D:/Megatronics/PharmaTrackPro/Hardware/SerialPortManager.h
+  D:/Megatronics/PharmaTrackPro/Hardware/Drivers/EthernetDriver.h \
+  D:/Megatronics/PharmaTrackPro/Hardware/Drivers/ScannerDriver.h \
+  D:/Megatronics/PharmaTrackPro/Hardware/Drivers/SerialDriver.h

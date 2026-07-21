@@ -94,9 +94,14 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Program\ Files/CMake/share/cmake-4.4/Modules/Platform/WindowsPaths.cmake \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QDateTime \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QHash \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QList \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QObject \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QRect \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QSet \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QSize \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QSizeF \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QString \
-	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QStringList \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QTimer \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/QVector \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/q17memory.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20bit.h \
@@ -107,6 +112,7 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20utility.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/q23type_traits.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/q23utility.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qabstracteventdispatcher.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qalgorithms.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qalloc.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qanystringview.h \
@@ -117,6 +123,7 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qatomic.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qatomic_cxx11.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbasicatomic.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbasictimer.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbindingstorage.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearray.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearrayalgorithms.h \
@@ -135,11 +142,16 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontainerinfo.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontainertools_impl.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontiguouscache.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcoreapplication.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcoreapplication_platform.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcoreevent.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdarwinhelpers.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdatastream.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdatetime.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdeadlinetimer.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdebug.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qendian.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qeventloop.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qexceptionhandling.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qflags.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qfloat16.h \
@@ -168,6 +180,7 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmetatype.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qminmax.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qnamespace.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qnativeinterface.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qnumeric.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qobject.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qobject_impl.h \
@@ -216,6 +229,7 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtenvironmentvariables.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtextstream.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtformat_impl.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtimer.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtmetamacros.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtnoop.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtpreprocessorsupport.h \
@@ -226,6 +240,7 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtversionchecks.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtypeinfo.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qtypes.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qurl.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qutf8stringview.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qvariant.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qvarlengtharray.h \
@@ -233,43 +248,83 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qversiontagging.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtCore/qyieldcpu.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/QTransform \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qabstracttextdocumentlayout.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qaction.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qbitmap.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qbrush.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qcolor.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qcursor.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qevent.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qeventpoint.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qfont.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qfontdatabase.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qfontinfo.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qfontmetrics.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qfontvariableaxis.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qglyphrun.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qguiapplication.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qguiapplication_platform.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qicon.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qimage.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qinputdevice.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qinputmethod.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qkeysequence.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qpaintdevice.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qpalette.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qpen.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qpixelformat.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qpixmap.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qpointingdevice.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qpolygon.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qrawfont.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qregion.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qrgb.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qrgba64.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qscreen.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qscreen_platform.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtextcursor.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtextdocument.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtextformat.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtextlayout.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtextoption.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtgui-config.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtguiexports.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtguiglobal.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qtransform.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qvector2d.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qvectornd.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtGui/qwindowdefs_win.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/QHostAddress \
+	C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/QTcpSocket \
+	C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qabstractsocket.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qhostaddress.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qtcpsocket.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qtnetwork-config.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qtnetworkexports.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtNetwork/qtnetworkglobal.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/QSerialPort \
 	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/QSerialPortInfo \
 	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialport.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialportglobal.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qserialportinfo.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtSerialPort/qtserialportexports.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/QGridLayout \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/QMainWindow \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/QPlainTextEdit \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/QWidget \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qabstractscrollarea.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qboxlayout.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qframe.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qgridlayout.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qlayout.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qlayoutitem.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qmainwindow.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qplaintextedit.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qsizepolicy.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtabwidget.h \
+	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtextedit.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtwidgets-config.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
 	C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -560,22 +615,40 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	D:/Megatronics/PharmaTrackPro/App/Application.h \
 	D:/Megatronics/PharmaTrackPro/App/main.cpp \
 	D:/Megatronics/PharmaTrackPro/CMakeLists.txt \
+	D:/Megatronics/PharmaTrackPro/Hardware/Drivers/EthernetDriver.cpp \
+	D:/Megatronics/PharmaTrackPro/Hardware/Drivers/EthernetDriver.h \
+	D:/Megatronics/PharmaTrackPro/Hardware/Drivers/ScannerDriver.cpp \
+	D:/Megatronics/PharmaTrackPro/Hardware/Drivers/ScannerDriver.h \
+	D:/Megatronics/PharmaTrackPro/Hardware/Drivers/SerialDriver.cpp \
+	D:/Megatronics/PharmaTrackPro/Hardware/Drivers/SerialDriver.h \
 	D:/Megatronics/PharmaTrackPro/Hardware/ScannerManager.cpp \
 	D:/Megatronics/PharmaTrackPro/Hardware/ScannerManager.h \
 	D:/Megatronics/PharmaTrackPro/Hardware/SerialPortManager.cpp \
 	D:/Megatronics/PharmaTrackPro/Hardware/SerialPortManager.h \
 	D:/Megatronics/PharmaTrackPro/Models/Batch.cpp \
 	D:/Megatronics/PharmaTrackPro/Models/Batch.h \
+	D:/Megatronics/PharmaTrackPro/Models/GenerationResult.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/GenerationResult.h \
 	D:/Megatronics/PharmaTrackPro/Models/Product.cpp \
 	D:/Megatronics/PharmaTrackPro/Models/Product.h \
 	D:/Megatronics/PharmaTrackPro/Models/Report.cpp \
 	D:/Megatronics/PharmaTrackPro/Models/Report.h \
 	D:/Megatronics/PharmaTrackPro/Models/ScanLog.cpp \
 	D:/Megatronics/PharmaTrackPro/Models/ScanLog.h \
+	D:/Megatronics/PharmaTrackPro/Models/ScannerConfiguration.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/ScannerConfiguration.h \
+	D:/Megatronics/PharmaTrackPro/Models/ScannerInfo.cpp \
+	D:/Megatronics/PharmaTrackPro/Models/ScannerInfo.h \
 	D:/Megatronics/PharmaTrackPro/Models/SerialNumber.cpp \
 	D:/Megatronics/PharmaTrackPro/Models/SerialNumber.h \
 	D:/Megatronics/PharmaTrackPro/Models/User.cpp \
 	D:/Megatronics/PharmaTrackPro/Models/User.h \
+	D:/Megatronics/PharmaTrackPro/Services/GeneratorService.cpp \
+	D:/Megatronics/PharmaTrackPro/Services/GeneratorService.h \
+	D:/Megatronics/PharmaTrackPro/Services/ScannerConfigurationService.cpp \
+	D:/Megatronics/PharmaTrackPro/Services/ScannerConfigurationService.h \
+	D:/Megatronics/PharmaTrackPro/Services/ScannerDiscoveryService.cpp \
+	D:/Megatronics/PharmaTrackPro/Services/ScannerDiscoveryService.h \
 	D:/Megatronics/PharmaTrackPro/Services/ScannerService.cpp \
 	D:/Megatronics/PharmaTrackPro/Services/ScannerService.h \
 	D:/Megatronics/PharmaTrackPro/Services/VerificationService.cpp \
@@ -592,12 +665,18 @@ PharmaTrackPro_autogen/timestamp_Debug: \
 	D:/Megatronics/PharmaTrackPro/UI/ScannerWindow.h \
 	D:/Megatronics/PharmaTrackPro/UI/SettingsWindow.cpp \
 	D:/Megatronics/PharmaTrackPro/UI/SettingsWindow.h \
+	D:/Megatronics/PharmaTrackPro/Utils/CSVExporter.cpp \
+	D:/Megatronics/PharmaTrackPro/Utils/CSVExporter.h \
 	D:/Megatronics/PharmaTrackPro/Utils/FileManager.cpp \
 	D:/Megatronics/PharmaTrackPro/Utils/FileManager.h \
 	D:/Megatronics/PharmaTrackPro/Utils/JsonManager.cpp \
 	D:/Megatronics/PharmaTrackPro/Utils/JsonManager.h \
 	D:/Megatronics/PharmaTrackPro/Utils/PathManager.cpp \
 	D:/Megatronics/PharmaTrackPro/Utils/PathManager.h \
+	D:/Megatronics/PharmaTrackPro/Utils/RandomGenerator.cpp \
+	D:/Megatronics/PharmaTrackPro/Utils/RandomGenerator.h \
+	D:/Megatronics/PharmaTrackPro/Utils/TXTExporter.cpp \
+	D:/Megatronics/PharmaTrackPro/Utils/TXTExporter.h \
 	D:/Megatronics/PharmaTrackPro/build/CMakeFiles/4.4.0/CMakeCXXCompiler.cmake \
 	D:/Megatronics/PharmaTrackPro/build/CMakeFiles/4.4.0/CMakeRCCompiler.cmake \
 	D:/Megatronics/PharmaTrackPro/build/CMakeFiles/4.4.0/CMakeSystem.cmake \

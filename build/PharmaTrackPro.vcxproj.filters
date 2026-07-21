@@ -34,10 +34,31 @@
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\ScannerManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\ScannerDriver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\EthernetDriver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\SerialDriver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\ScannerService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\VerificationService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\ScannerDiscoveryService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\ScannerConfigurationService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\GeneratorService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\ScannerInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\SerialNumber.cpp">
@@ -58,6 +79,12 @@
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\Report.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\ScannerConfiguration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\GenerationResult.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\PathManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -65,6 +92,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\JsonManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\TXTExporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\CSVExporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\RandomGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\mocs_compilation_Release.cpp">
@@ -105,10 +141,28 @@
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\ScannerManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\ScannerDriver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\EthernetDriver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\SerialDriver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\ScannerService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\VerificationService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\ScannerDiscoveryService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\ScannerConfigurationService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\GeneratorService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\SerialNumber.h">
@@ -129,6 +183,15 @@
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\Report.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\ScannerInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\ScannerConfiguration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\GenerationResult.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\PathManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -138,24 +201,20 @@
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\JsonManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\include_Debug\UI\ui_MainWindow.h">
-      <Filter>Source Files\Generated</Filter>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\CSVExporter.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\include_Release\UI\ui_MainWindow.h">
-      <Filter>Source Files\Generated</Filter>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\TXTExporter.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\include_MinSizeRel\UI\ui_MainWindow.h">
-      <Filter>Source Files\Generated</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\include_RelWithDebInfo\UI\ui_MainWindow.h">
-      <Filter>Source Files\Generated</Filter>
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\RandomGenerator.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Megatronics\PharmaTrackPro\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Megatronics\PharmaTrackPro\UI\MainWindow.ui" />
     <None Include="D:\Megatronics\PharmaTrackPro\timestamp_Debug" />
     <None Include="D:\Megatronics\PharmaTrackPro\timestamp_Release" />
     <None Include="D:\Megatronics\PharmaTrackPro\timestamp_MinSizeRel" />

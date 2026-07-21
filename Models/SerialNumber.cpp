@@ -4,21 +4,28 @@ namespace PharmaTrack
 {
 
 SerialNumber::SerialNumber()
-    : m_scanned(false),
-      m_status(SerialStatus::NotScanned)
-{
-}
-
-SerialNumber::SerialNumber(const QString& serialNumber)
-    : m_serialNumber(serialNumber),
+    : m_serialLength(0),
       m_scanned(false),
-      m_status(SerialStatus::NotScanned)
+      m_status(SerialStatus::Pending)
 {
 }
 
-QString SerialNumber::serialNumber() const
+SerialNumber::SerialNumber(const QString &serial)
+    : m_serial(serial),
+      m_serialLength(0),
+      m_scanned(false),
+      m_status(SerialStatus::Pending)
 {
-    return m_serialNumber;
+}
+
+QString SerialNumber::serial() const
+{
+    return m_serial;
+}
+
+void SerialNumber::setSerial(const QString &serial)
+{
+    m_serial = serial.toUpper().trimmed();
 }
 
 QString SerialNumber::batchNumber() const
@@ -26,14 +33,59 @@ QString SerialNumber::batchNumber() const
     return m_batchNumber;
 }
 
-QString SerialNumber::productCode() const
+void SerialNumber::setBatchNumber(const QString &batchNumber)
 {
-    return m_productCode;
+    m_batchNumber = batchNumber.trimmed();
 }
 
+QString SerialNumber::productName() const
+{
+    return m_productName;
+}
+
+void SerialNumber::setProductName(const QString &productName)
+{
+    m_productName = productName.trimmed();
+}
+
+QString SerialNumber::prefix() const
+{
+    return m_prefix;
+}
+
+void SerialNumber::setPrefix(const QString &prefix)
+{
+    m_prefix = prefix.toUpper().trimmed();
+}
+
+int SerialNumber::serialLength() const
+{
+    return m_serialLength;
+}
+
+void SerialNumber::setSerialLength(int length)
+{
+    m_serialLength = length;
+}
+
+QDateTime SerialNumber::generatedAt() const
+{
+    return m_generatedAt;
+}
+
+void SerialNumber::setGeneratedAt(const QDateTime &dateTime)
+{
+    m_generatedAt = dateTime;
+}
 bool SerialNumber::isScanned() const
 {
     return m_scanned;
+}
+
+void SerialNumber::markScanned(SerialStatus status)
+{
+    m_scanned = true;
+    m_status = status;
 }
 
 SerialStatus SerialNumber::status() const
@@ -41,46 +93,5 @@ SerialStatus SerialNumber::status() const
     return m_status;
 }
 
-const QDateTime& SerialNumber::scanTime() const
-{
-    return m_scanTime;
-}
-
-void SerialNumber::setSerialNumber(const QString& serialNumber)
-{
-    m_serialNumber = serialNumber;
-}
-
-void SerialNumber::setBatchNumber(const QString& batchNumber)
-{
-    m_batchNumber = batchNumber;
-}
-
-void SerialNumber::setProductCode(const QString& productCode)
-{
-    m_productCode = productCode;
-}
-
-void SerialNumber::setScanned(bool scanned)
-{
-    m_scanned = scanned;
-}
-
-void SerialNumber::setStatus(SerialStatus status)
-{
-    m_status = status;
-}
-
-void SerialNumber::setScanTime(const QDateTime& scanTime)
-{
-    m_scanTime = scanTime;
-}
-
-void SerialNumber::markScanned(SerialStatus status)
-{
-    m_scanned = true;
-    m_status = status;
-    m_scanTime = QDateTime::currentDateTime();
-}
 
 }

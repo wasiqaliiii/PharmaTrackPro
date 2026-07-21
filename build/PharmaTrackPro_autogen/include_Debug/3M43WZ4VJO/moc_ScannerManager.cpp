@@ -39,33 +39,49 @@ template <> constexpr inline auto PharmaTrack::ScannerManager::qt_create_metaobj
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "PharmaTrack::ScannerManager",
-        "qrScanned",
-        "",
-        "qr",
         "connected",
+        "",
         "disconnected",
+        "connectionLost",
+        "dataReceived",
+        "data",
         "errorOccurred",
         "error",
-        "processIncomingData",
-        "data"
+        "onConnected",
+        "onDisconnected",
+        "onConnectionLost",
+        "onDataReceived",
+        "onErrorOccurred"
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Signal 'qrScanned'
-        QtMocHelpers::SignalData<void(const QString &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 3 },
-        }}),
         // Signal 'connected'
-        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'disconnected'
-        QtMocHelpers::SignalData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
-        // Signal 'errorOccurred'
-        QtMocHelpers::SignalData<void(const QString &)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 7 },
+        QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'connectionLost'
+        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'dataReceived'
+        QtMocHelpers::SignalData<void(const QByteArray &)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QByteArray, 6 },
         }}),
-        // Slot 'processIncomingData'
-        QtMocHelpers::SlotData<void(const QByteArray &)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QByteArray, 9 },
+        // Signal 'errorOccurred'
+        QtMocHelpers::SignalData<void(const QString &)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 8 },
+        }}),
+        // Slot 'onConnected'
+        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onDisconnected'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onConnectionLost'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onDataReceived'
+        QtMocHelpers::SlotData<void(const QByteArray &)>(12, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QByteArray, 6 },
+        }}),
+        // Slot 'onErrorOccurred'
+        QtMocHelpers::SlotData<void(const QString &)>(13, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 8 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -90,22 +106,29 @@ void PharmaTrack::ScannerManager::qt_static_metacall(QObject *_o, QMetaObject::C
     auto *_t = static_cast<ScannerManager *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->qrScanned((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 1: _t->connected(); break;
-        case 2: _t->disconnected(); break;
-        case 3: _t->errorOccurred((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 4: _t->processIncomingData((*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 0: _t->connected(); break;
+        case 1: _t->disconnected(); break;
+        case 2: _t->connectionLost(); break;
+        case 3: _t->dataReceived((*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 4: _t->errorOccurred((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->onConnected(); break;
+        case 6: _t->onDisconnected(); break;
+        case 7: _t->onConnectionLost(); break;
+        case 8: _t->onDataReceived((*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 9: _t->onErrorOccurred((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
-        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)(const QString & )>(_a, &ScannerManager::qrScanned, 0))
+        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)()>(_a, &ScannerManager::connected, 0))
             return;
-        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)()>(_a, &ScannerManager::connected, 1))
+        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)()>(_a, &ScannerManager::disconnected, 1))
             return;
-        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)()>(_a, &ScannerManager::disconnected, 2))
+        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)()>(_a, &ScannerManager::connectionLost, 2))
             return;
-        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)(const QString & )>(_a, &ScannerManager::errorOccurred, 3))
+        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)(const QByteArray & )>(_a, &ScannerManager::dataReceived, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (ScannerManager::*)(const QString & )>(_a, &ScannerManager::errorOccurred, 4))
             return;
     }
 }
@@ -129,39 +152,45 @@ int PharmaTrack::ScannerManager::qt_metacall(QMetaObject::Call _c, int _id, void
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 10;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 10;
     }
     return _id;
 }
 
 // SIGNAL 0
-void PharmaTrack::ScannerManager::qrScanned(const QString & _t1)
+void PharmaTrack::ScannerManager::connected()
 {
-    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 
 // SIGNAL 1
-void PharmaTrack::ScannerManager::connected()
+void PharmaTrack::ScannerManager::disconnected()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 
 // SIGNAL 2
-void PharmaTrack::ScannerManager::disconnected()
+void PharmaTrack::ScannerManager::connectionLost()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 
 // SIGNAL 3
-void PharmaTrack::ScannerManager::errorOccurred(const QString & _t1)
+void PharmaTrack::ScannerManager::dataReceived(const QByteArray & _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1);
+}
+
+// SIGNAL 4
+void PharmaTrack::ScannerManager::errorOccurred(const QString & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 4, nullptr, _t1);
 }
 QT_WARNING_POP

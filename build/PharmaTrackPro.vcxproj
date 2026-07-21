@@ -403,17 +403,29 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\UI\SettingsWindow.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\SerialPortManager.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\ScannerManager.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\ScannerDriver.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\EthernetDriver.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\SerialDriver.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\ScannerService.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\VerificationService.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\ScannerDiscoveryService.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\ScannerConfigurationService.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Services\GeneratorService.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\ScannerInfo.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\SerialNumber.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\ScanLog.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\Batch.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\Product.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\User.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\Report.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\ScannerConfiguration.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Models\GenerationResult.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\PathManager.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\FileManager.cpp" />
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\JsonManager.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\TXTExporter.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\CSVExporter.cpp" />
+    <ClCompile Include="D:\Megatronics\PharmaTrackPro\Utils\RandomGenerator.cpp" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\App\Application.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\UI\MainWindow.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\UI\DashboardWindow.h" />
@@ -423,20 +435,29 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\UI\SettingsWindow.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\SerialPortManager.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\ScannerManager.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\ScannerDriver.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\EthernetDriver.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Hardware\Drivers\SerialDriver.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\ScannerService.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\VerificationService.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\ScannerDiscoveryService.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\ScannerConfigurationService.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Services\GeneratorService.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\SerialNumber.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\ScanLog.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\Batch.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\Product.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\User.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\Report.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\ScannerInfo.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\ScannerConfiguration.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Models\GenerationResult.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\PathManager.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\FileManager.h" />
     <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\JsonManager.h" />
-    <None Include="D:\Megatronics\PharmaTrackPro\UI\MainWindow.ui">
-    </None>
-    <ClInclude Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\include_Debug\UI\ui_MainWindow.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\CSVExporter.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\TXTExporter.h" />
+    <ClInclude Include="D:\Megatronics\PharmaTrackPro\Utils\RandomGenerator.h" />
     <None Include="D:\Megatronics\PharmaTrackPro\timestamp_Debug">
     </None>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\mocs_compilation_Release.cpp">
@@ -444,7 +465,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClInclude Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\include_Release\UI\ui_MainWindow.h" />
     <None Include="D:\Megatronics\PharmaTrackPro\timestamp_Release">
     </None>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\mocs_compilation_MinSizeRel.cpp">
@@ -452,7 +472,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClInclude Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\include_MinSizeRel\UI\ui_MainWindow.h" />
     <None Include="D:\Megatronics\PharmaTrackPro\timestamp_MinSizeRel">
     </None>
     <ClCompile Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\mocs_compilation_RelWithDebInfo.cpp">
@@ -460,7 +479,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClInclude Include="D:\Megatronics\PharmaTrackPro\build\PharmaTrackPro_autogen\include_RelWithDebInfo\UI\ui_MainWindow.h" />
     <None Include="D:\Megatronics\PharmaTrackPro\timestamp_RelWithDebInfo">
     </None>
   </ItemGroup>

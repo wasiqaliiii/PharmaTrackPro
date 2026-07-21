@@ -1,5 +1,7 @@
 #pragma once
-
+#include "../Hardware/ScannerManager.h"
+#include "../Services/ScannerService.h"
+#include "../Services/ScannerConfigurationService.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -68,7 +70,16 @@ private:
 
     ReportsWindow* m_reportsPage;
 
-    SettingsWindow* m_settingsPage;
+    SettingsWindow* m_settingsPage;\
+    ////////////////////////////////////////////////////////
+/// Scanner Backend
+////////////////////////////////////////////////////////
+
+ScannerManager* m_scannerManager = nullptr;
+
+ScannerService* m_scannerService = nullptr;
+
+ScannerConfigurationService* m_configurationService = nullptr;
 
 };
 

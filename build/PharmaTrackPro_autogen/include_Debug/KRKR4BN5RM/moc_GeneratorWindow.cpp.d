@@ -56,6 +56,9 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/KRKR4BN
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/stdio.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/stdlib.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.26100.0/ucrt/string.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/QDateTime \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/QList \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/QString \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20bit.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/q20functional.h \
@@ -80,6 +83,7 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/KRKR4BN
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcalendar.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qchar.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcheckedint_impl.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcompare.h \
@@ -94,6 +98,7 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/KRKR4BN
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdatetime.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qdebug.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qendian.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qexceptionhandling.h \
@@ -113,6 +118,7 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/KRKR4BN
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlatin1stringview.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qline.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlist.h \
+  C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlocale.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qlogging.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmalloc.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtCore/qmap.h \
@@ -215,4 +221,6 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/KRKR4BN
   C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
-  C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qwidget.h
+  C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qwidget.h \
+  D:/Megatronics/PharmaTrackPro/Models/GenerationResult.h \
+  D:/Megatronics/PharmaTrackPro/Models/SerialNumber.h

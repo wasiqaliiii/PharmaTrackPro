@@ -1,22 +1,11 @@
 #pragma once
 
 #include <QObject>
-#include <QStringList>
-
-#include "../Hardware/ScannerManager.h"
-#include "VerificationService.h"
 
 namespace PharmaTrack
 {
 
-enum class ScannerState
-{
-    Idle,
-    BatchLoaded,
-    ScannerConnected,
-    Ready,
-    Scanning
-};
+class ScannerManager;
 
 class ScannerService : public QObject
 {
@@ -24,127 +13,96 @@ class ScannerService : public QObject
 
 public:
 
-    explicit ScannerService(QObject* parent = nullptr);
+    explicit ScannerService(
+            QObject* parent = nullptr);
 
-    //----------------------------------------------------
-    // Batch
-    //----------------------------------------------------
+    ~ScannerService();
 
-    bool loadBatch(const QString& batchId);
+    //////////////////////////////////////////////////////
+    /// Scanner Manager
+    //////////////////////////////////////////////////////
 
-    void unloadBatch();
+    void setScannerManager(
+            ScannerManager* manager);
 
-    bool hasBatchLoaded() const;
+    //////////////////////////////////////////////////////
+    /// Scanner
+    //////////////////////////////////////////////////////
 
-    QString currentBatch() const;
+    void start();
 
-    VerificationService& verificationService();
+    void stop();
 
-    //----------------------------------------------------
-    // Scanner
-    //----------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Information
+    //////////////////////////////////////////////////////
 
-    QStringList availablePorts() const;
+    QString lastScannedCode() const;
 
-    bool connectScanner(const QString& port);
-
-    void disconnectScanner();
-
-    bool isScannerConnected() const;
-
-    //----------------------------------------------------
-    // Production
-    //----------------------------------------------------
-
-    bool startScanning();
-
-    void stopScanning();
-
-    bool isScanning() const;
-
-    ScannerState state() const;
+    bool hasScan() const;
 
 signals:
 
-    //----------------------------------------------------
-    // Scanner
-    //----------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Scan
+    //////////////////////////////////////////////////////
 
-    void scannerConnected();
+    void scanReceived(
+            const QString& code);
 
-    void scannerDisconnected();
+    //////////////////////////////////////////////////////
+    /// Validation
+    //////////////////////////////////////////////////////
 
-    void scannerError(const QString& error);
+    void batchNotLoaded(
+            const QString& code);
 
-    //----------------------------------------------------
-    // Batch
-    //----------------------------------------------------
+    void codeFound(
+            const QString& code);
 
-    void batchLoaded(const QString& batchId);
+    void codeNotFound(
+            const QString& code);
 
-    void batchUnloaded();
-
-    //----------------------------------------------------
-    // Production
-    //----------------------------------------------------
-
-    void scanStarted();
-
-    void scanStopped();
-
-    //----------------------------------------------------
-    // Verification
-    //----------------------------------------------------
-
-    void qrScanned(const QString& serial,
-                   ScanResult result);
-
-    void codeVerified(const ScanLog& log);
-
-    //----------------------------------------------------
-    // Dashboard
-    //----------------------------------------------------
-
-    void statisticsChanged(
-            int total,
-            int accepted,
-            int rejected,
-            int duplicate,
-            int remaining);
+    void duplicateCode(
+            const QString& code);
 
 private slots:
 
-    void processQr(const QString& qr);
+    //////////////////////////////////////////////////////
+    /// Scanner
+    //////////////////////////////////////////////////////
+
+    void onDataReceived(
+            const QByteArray& data);
 
 private:
 
-    void setState(ScannerState state);
+    //////////////////////////////////////////////////////
+    /// Helpers
+    //////////////////////////////////////////////////////
+
+    void processScan(
+            const QString& code);
 
 private:
 
-    //----------------------------------------------------
-    // Hardware
-    //----------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Scanner
+    //////////////////////////////////////////////////////
 
-    ScannerManager m_scanner;
+    ScannerManager* m_scannerManager;
 
-    //----------------------------------------------------
-    // Business
-    //----------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Last Scan
+    //////////////////////////////////////////////////////
 
-    VerificationService m_verification;
+    QString m_lastScannedCode;
 
-    //----------------------------------------------------
-    // Current Batch
-    //----------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// State
+    //////////////////////////////////////////////////////
 
-    QString m_currentBatch;
-
-    //----------------------------------------------------
-    // State
-    //----------------------------------------------------
-
-    ScannerState m_state;
+    bool m_hasScan;
 };
 
 }

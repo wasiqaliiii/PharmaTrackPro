@@ -1,0 +1,63 @@
+#pragma once
+
+#include <QObject>
+
+namespace PharmaTrack
+{
+
+class ScannerDriver : public QObject
+{
+    Q_OBJECT
+
+public:
+
+    explicit ScannerDriver(
+            QObject* parent = nullptr);
+
+    virtual ~ScannerDriver();
+
+    //////////////////////////////////////////////////////
+    /// Connection
+    //////////////////////////////////////////////////////
+
+    virtual bool connectDriver() = 0;
+
+    virtual void disconnectDriver() = 0;
+
+    virtual bool isConnected() const = 0;
+
+    //////////////////////////////////////////////////////
+    /// Communication
+    //////////////////////////////////////////////////////
+
+    virtual bool send(
+            const QByteArray& data) = 0;
+
+signals:
+
+    //////////////////////////////////////////////////////
+    /// Connection
+    //////////////////////////////////////////////////////
+
+    void connected();
+
+    void disconnected();
+
+    void connectionLost();
+
+    //////////////////////////////////////////////////////
+    /// Data
+    //////////////////////////////////////////////////////
+
+    void dataReceived(
+            const QByteArray& data);
+
+    //////////////////////////////////////////////////////
+    /// Error
+    //////////////////////////////////////////////////////
+
+    void errorOccurred(
+            const QString& error);
+};
+
+}

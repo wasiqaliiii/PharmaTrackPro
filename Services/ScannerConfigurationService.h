@@ -1,0 +1,104 @@
+#pragma once
+
+#include <QObject>
+
+#include "../Models/ScannerInfo.h"
+#include "../Models/ScannerConfiguration.h"
+
+namespace PharmaTrack
+{
+
+class ScannerManager;
+
+class ScannerConfigurationService : public QObject
+{
+    Q_OBJECT
+
+public:
+
+    explicit ScannerConfigurationService(
+            QObject* parent = nullptr);
+
+    ~ScannerConfigurationService();
+
+    //////////////////////////////////////////////////////
+    /// Scanner Manager
+    //////////////////////////////////////////////////////
+
+    void setScannerManager(
+            ScannerManager* manager);
+
+    //////////////////////////////////////////////////////
+    /// Configuration
+    //////////////////////////////////////////////////////
+
+    bool configureScanner(
+            const ScannerInfo& scanner);
+
+    bool applyConfiguration(
+            const ScannerConfiguration& configuration);
+
+    void disconnectScanner();
+
+    //////////////////////////////////////////////////////
+    /// Information
+    //////////////////////////////////////////////////////
+
+    bool isConfigured() const;
+
+    const ScannerConfiguration&
+    configuration() const;
+
+signals:
+
+    //////////////////////////////////////////////////////
+    /// Configuration
+    //////////////////////////////////////////////////////
+
+    void configurationStarted();
+
+    void configurationCompleted();
+
+    void configurationFailed(
+            const QString& error);
+
+    //////////////////////////////////////////////////////
+    /// Scanner
+    //////////////////////////////////////////////////////
+
+    void scannerConfigured(
+            const ScannerInfo& scanner);
+
+    void scannerDisconnected();
+
+private:
+
+    //////////////////////////////////////////////////////
+    /// Helpers
+    //////////////////////////////////////////////////////
+
+    bool validateConfiguration(
+            const ScannerConfiguration& configuration);
+
+private:
+
+    //////////////////////////////////////////////////////
+    /// Scanner Manager
+    //////////////////////////////////////////////////////
+
+    ScannerManager* m_scannerManager;
+
+    //////////////////////////////////////////////////////
+    /// Configuration
+    //////////////////////////////////////////////////////
+
+    ScannerConfiguration m_configuration;
+
+    //////////////////////////////////////////////////////
+    /// State
+    //////////////////////////////////////////////////////
+
+    bool m_configured;
+};
+
+}

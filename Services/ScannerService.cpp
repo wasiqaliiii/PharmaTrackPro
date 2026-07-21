@@ -1,310 +1,212 @@
 #include "ScannerService.h"
 
+#include "../Hardware/ScannerManager.h"
+
+#include <QDebug>
+
 namespace PharmaTrack
 {
 
-ScannerService::ScannerService(QObject *parent)
+////////////////////////////////////////////////////////
+/// Constructor
+////////////////////////////////////////////////////////
+
+ScannerService::ScannerService(
+        QObject* parent)
     : QObject(parent),
-      m_state(ScannerState::Idle)
+      m_scannerManager(nullptr),
+      m_hasScan(false)
 {
-    //--------------------------------------------------
-    // Scanner Signals
-    //--------------------------------------------------
-
-    connect(&m_scanner,
-            &ScannerManager::connected,
-            this,
-            &ScannerService::scannerConnected);
-
-    connect(&m_scanner,
-            &ScannerManager::disconnected,
-            this,
-            &ScannerService::scannerDisconnected);
-
-    connect(&m_scanner,
-            &ScannerManager::errorOccurred,
-            this,
-            &ScannerService::scannerError);
-
-    connect(&m_scanner,
-            &ScannerManager::qrScanned,
-            this,
-            &ScannerService::processQr);
-
-    //--------------------------------------------------
-    // Verification Signals
-    //--------------------------------------------------
-
-    connect(&m_verification,
-            &VerificationService::statisticsChanged,
-            this,
-            &ScannerService::statisticsChanged);
-
-    connect(&m_verification,
-            &VerificationService::codeVerified,
-            this,
-            &ScannerService::codeVerified);
 }
 
 ////////////////////////////////////////////////////////
-/// State Management
+/// Destructor
 ////////////////////////////////////////////////////////
 
-void ScannerService::setState(ScannerState state)
+ScannerService::~ScannerService()
 {
-    m_state = state;
-}
-
-ScannerState ScannerService::state() const
-{
-    return m_state;
+    stop();
 }
 
 ////////////////////////////////////////////////////////
-/// Verification
+/// Scanner Manager
 ////////////////////////////////////////////////////////
 
-VerificationService& ScannerService::verificationService()
+void ScannerService::setScannerManager(
+        ScannerManager* manager)
 {
-    return m_verification;
-}
-
-////////////////////////////////////////////////////////
-/// Current Batch
-////////////////////////////////////////////////////////
-
-QString ScannerService::currentBatch() const
-{
-    return m_currentBatch;
-}
-
-bool ScannerService::hasBatchLoaded() const
-{
-    return !m_currentBatch.isEmpty();
-}
-
-////////////////////////////////////////////////////////
-/// Scanner
-////////////////////////////////////////////////////////
-
-QStringList ScannerService::availablePorts() const
-{
-    return m_scanner.availablePorts();
-}
-
-bool ScannerService::isScannerConnected() const
-{
-    return m_scanner.isConnected();
-}
-
-bool ScannerService::isScanning() const
-{
-    return m_state == ScannerState::Scanning;
-}
-
-// part 02 
-
-////////////////////////////////////////////////////////
-/// Batch Management
-////////////////////////////////////////////////////////
-
-bool ScannerService::loadBatch(const QString& batchId)
-{
-    //--------------------------------------------------
-    // Prevent Loading While Scanning
-    //--------------------------------------------------
-
-    if(state() == ScannerState::Scanning)
-        return false;
-
-    //--------------------------------------------------
-    // Load Production Batch
-    //--------------------------------------------------
-
-    if(!m_verification.loadBatch(batchId))
-        return false;
-
-    //--------------------------------------------------
-    // Save Current Batch
-    //--------------------------------------------------
-
-    m_currentBatch = batchId;
-
-    //--------------------------------------------------
-    // Update State
-    //--------------------------------------------------
-
-    if(isScannerConnected())
-        setState(ScannerState::Ready);
-    else
-        setState(ScannerState::BatchLoaded);
-
-    //--------------------------------------------------
-    // Notify UI
-    //--------------------------------------------------
-
-    emit batchLoaded(batchId);
-
-    return true;
-}
-
-void ScannerService::unloadBatch()
-{
-    //--------------------------------------------------
-    // Stop Production
-    //--------------------------------------------------
-
-    stopScanning();
-
-    //--------------------------------------------------
-    // Disconnect Scanner
-    //--------------------------------------------------
-
-    disconnectScanner();
-
-    //--------------------------------------------------
-    // Clear Verification Data
-    //--------------------------------------------------
-
-    m_verification.clearProduction();
-
-    //--------------------------------------------------
-    // Reset Batch
-    //--------------------------------------------------
-
-    m_currentBatch.clear();
-
-    //--------------------------------------------------
-    // Reset State
-    //--------------------------------------------------
-
-    setState(ScannerState::Idle);
-
-    //--------------------------------------------------
-    // Notify UI
-    //--------------------------------------------------
-
-    emit batchUnloaded();
-}
-
-////////////////////////////////////////////////////////
-/// Scanner Connection
-////////////////////////////////////////////////////////
-
-bool ScannerService::connectScanner(const QString& port)
-{
-    //--------------------------------------------------
-    // Connect Scanner
-    //--------------------------------------------------
-
-    if(!m_scanner.connectScanner(port))
-        return false;
-
-    //--------------------------------------------------
-    // Update State
-    //--------------------------------------------------
-
-    if(hasBatchLoaded())
-        setState(ScannerState::Ready);
-    else
-        setState(ScannerState::ScannerConnected);
-
-    return true;
-}
-
-void ScannerService::disconnectScanner()
-{
-    //--------------------------------------------------
-    // Stop Scanning First
-    //--------------------------------------------------
-
-    stopScanning();
-
-    //--------------------------------------------------
-    // Disconnect Hardware
-    //--------------------------------------------------
-
-    m_scanner.disconnectScanner();
-
-    //--------------------------------------------------
-    // Update State
-    //--------------------------------------------------
-
-    if(hasBatchLoaded())
-        setState(ScannerState::BatchLoaded);
-    else
-        setState(ScannerState::Idle);
-}
-
-////////////////////////////////////////////////////////
-/// Production Control
-////////////////////////////////////////////////////////
-
-bool ScannerService::startScanning()
-{
-    //--------------------------------------------------
-    // Scanner Must Be Ready
-    //--------------------------------------------------
-
-    if(state() != ScannerState::Ready)
-        return false;
-
-    //--------------------------------------------------
-    // Start Production
-    //--------------------------------------------------
-
-    setState(ScannerState::Scanning);
-
-    emit scanStarted();
-
-    return true;
-}
-
-void ScannerService::stopScanning()
-{
-    //--------------------------------------------------
-    // Already Stopped
-    //--------------------------------------------------
-
-    if(state() != ScannerState::Scanning)
+    if (m_scannerManager == manager)
+    {
         return;
+    }
 
-    //--------------------------------------------------
-    // Return To Ready State
-    //--------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Disconnect Previous Manager
+    //////////////////////////////////////////////////////
 
-    setState(ScannerState::Ready);
+    if (m_scannerManager)
+    {
+        disconnect(m_scannerManager,
+                   nullptr,
+                   this,
+                   nullptr);
+    }
 
-    emit scanStopped();
-}
+    m_scannerManager = manager;
 
-// --------- part 03 ----------
-
-////////////////////////////////////////////////////////
-/// QR Processing
-////////////////////////////////////////////////////////
-
-void ScannerService::processQr(const QString& qr)
-{
-    //--------------------------------------------------
-    // Scanner Must Be Running
-    //--------------------------------------------------
-
-    if(state() != ScannerState::Scanning)
+    if (!m_scannerManager)
+    {
         return;
+    }
 
-    //--------------------------------------------------
-    // Verify QR Code
-    //--------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Scanner Signals
+    //////////////////////////////////////////////////////
 
-    ScanResult result =
-            m_verification.verifyCode(qr);
-
-    //--------------------------------------------------
-    // Notify UI
-    //--------------------------------------------------
-
-    emit qrScanned(qr, result);
+    connect(m_scannerManager,
+            &ScannerManager::dataReceived,
+            this,
+            &ScannerService::onDataReceived,
+            Qt::UniqueConnection);
 }
+
+////////////////////////////////////////////////////////
+/// Start
+////////////////////////////////////////////////////////
+
+void ScannerService::start()
+{
+    qDebug()
+            << "[ScannerService] Started";
+}
+
+////////////////////////////////////////////////////////
+/// Stop
+////////////////////////////////////////////////////////
+
+void ScannerService::stop()
+{
+    if (m_scannerManager)
+    {
+        disconnect(m_scannerManager,
+                   nullptr,
+                   this,
+                   nullptr);
+    }
+
+    qDebug()
+            << "[ScannerService] Stopped";
+}
+
+////////////////////////////////////////////////////////
+/// Information
+////////////////////////////////////////////////////////
+
+QString ScannerService::lastScannedCode() const
+{
+    return m_lastScannedCode;
+}
+
+bool ScannerService::hasScan() const
+{
+    return m_hasScan;
+}
+////////////////////////////////////////////////////////
+/// Data Received
+////////////////////////////////////////////////////////
+
+void ScannerService::onDataReceived(
+        const QByteArray& data)
+{
+    //////////////////////////////////////////////////////
+    /// Convert Scanner Data
+    //////////////////////////////////////////////////////
+
+    QString code =
+            QString::fromUtf8(data);
+
+    //////////////////////////////////////////////////////
+    /// Remove CR/LF and Spaces
+    //////////////////////////////////////////////////////
+
+    code = code.trimmed();
+
+    //////////////////////////////////////////////////////
+    /// Ignore Empty Reads
+    //////////////////////////////////////////////////////
+
+    if (code.isEmpty())
+    {
+        return;
+    }
+
+    //////////////////////////////////////////////////////
+    /// Process Scan
+    //////////////////////////////////////////////////////
+
+    processScan(code);
+}
+
+////////////////////////////////////////////////////////
+/// Process Scan
+////////////////////////////////////////////////////////
+
+void ScannerService::processScan(
+        const QString& code)
+{
+    //////////////////////////////////////////////////////
+    /// Save Last Scan
+    //////////////////////////////////////////////////////
+
+    m_lastScannedCode = code;
+
+    m_hasScan = true;
+
+    //////////////////////////////////////////////////////
+    /// Log
+    //////////////////////////////////////////////////////
+
+    qDebug()
+            << "[ScannerService] Scan Received:"
+            << code;
+
+    //////////////////////////////////////////////////////
+    /// Immediately Notify UI
+    ///
+    /// This is emitted regardless of:
+    /// • Batch Loaded
+    /// • Code Exists
+    /// • Duplicate
+    ///
+    /// The operator must always see
+    /// what the scanner has received.
+    //////////////////////////////////////////////////////
+
+    emit scanReceived(code);
+
+    //////////////////////////////////////////////////////
+    /// Validation
+    ///
+    /// Validation will be implemented
+    /// after the Batch Service is ready.
+    ///
+    /// Flow:
+    ///
+    /// Scanner
+    ///     ↓
+    /// ScannerManager
+    ///     ↓
+    /// ScannerService
+    ///     ↓
+    /// scanReceived(code)
+    ///     ↓
+    /// Batch Validation
+    //////////////////////////////////////////////////////
+}
+
+
+
+
+
 
 }

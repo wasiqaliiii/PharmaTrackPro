@@ -1,14 +1,14 @@
 #include "DashboardWindow.h"
 
-#include <QFrame>
-#include <QGroupBox>
-#include <QGridLayout>
+#include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QHeaderView>
+#include <QGridLayout>
+#include <QScrollArea>
+#include <QFrame>
 #include <QLabel>
 #include <QTableWidget>
+#include <QHeaderView>
 #include <QTimer>
-#include <QVBoxLayout>
 #include <QDateTime>
 
 namespace PharmaTrack
@@ -16,20 +16,40 @@ namespace PharmaTrack
 
 DashboardWindow::DashboardWindow(QWidget *parent)
     : QWidget(parent),
+      m_scrollArea(nullptr),
+      m_container(nullptr),
+      m_mainLayout(nullptr),
+
       m_totalScansLabel(nullptr),
       m_acceptedLabel(nullptr),
       m_rejectedLabel(nullptr),
       m_remainingLabel(nullptr),
+
       m_scannerStatusLabel(nullptr),
       m_printerStatusLabel(nullptr),
       m_databaseStatusLabel(nullptr),
       m_plcStatusLabel(nullptr),
+
+      m_scannerNameLabel(nullptr),
+      m_scannerPortLabel(nullptr),
+      m_scannerConfigurationLabel(nullptr),
+      m_scannerCommunicationLabel(nullptr),
+      m_lastScanLabel(nullptr),
+
+      m_batchLabel(nullptr),
+      m_productionStateLabel(nullptr),
+      m_operatorLabel(nullptr),
+
       m_clockLabel(nullptr),
-      m_activityTable(nullptr),
-      m_clockTimer(new QTimer(this))
+      m_clockTimer(nullptr),
+
+      m_activityTable(nullptr)
 {
     setupUi();
+
     applyTheme();
+
+    m_clockTimer = new QTimer(this);
 
     connect(m_clockTimer,
             &QTimer::timeout,
@@ -39,603 +59,641 @@ DashboardWindow::DashboardWindow(QWidget *parent)
     m_clockTimer->start(1000);
 
     updateClock();
-
-    addActivity("Dashboard initialized");
-    addActivity("System ready");
 }
 
 DashboardWindow::~DashboardWindow()
 {
 }
 
+////////////////////////////////////////////////////////
+/// Setup UI
+////////////////////////////////////////////////////////
+
 void DashboardWindow::setupUi()
 {
-    auto *mainLayout = new QVBoxLayout(this);
+    //--------------------------------------------------
+    // Root Layout
+    //--------------------------------------------------
 
-    mainLayout->setContentsMargins(30,30,30,30);
-    mainLayout->setSpacing(20);
+    auto* rootLayout =
+            new QVBoxLayout(this);
 
-    //-------------------------------------------------------
-    // Header
-    //-------------------------------------------------------
+    rootLayout->setContentsMargins(0,0,0,0);
 
-    QLabel *title = new QLabel("Dashboard");
+    //--------------------------------------------------
+    // Scroll Area
+    //--------------------------------------------------
+
+    m_scrollArea =
+            new QScrollArea;
+
+    m_scrollArea->setWidgetResizable(true);
+
+    m_scrollArea->setFrameShape(QFrame::NoFrame);
+
+    rootLayout->addWidget(m_scrollArea);
+
+    //--------------------------------------------------
+    // Container
+    //--------------------------------------------------
+
+    m_container =
+            new QWidget;
+
+    m_scrollArea->setWidget(m_container);
+
+    //--------------------------------------------------
+    // Main Layout
+    //--------------------------------------------------
+
+    m_mainLayout =
+            new QVBoxLayout(m_container);
+
+    m_mainLayout->setContentsMargins(
+                25,
+                25,
+                25,
+                25);
+
+    m_mainLayout->setSpacing(20);
+
+    //////////////////////////////////////////////////////
+    /// Title
+    //////////////////////////////////////////////////////
+
+    QLabel* title =
+            new QLabel("Production Dashboard");
 
     title->setStyleSheet(
-        "font-size:30px;"
-        "font-weight:700;"
-        "color:white;"
-    );
+                "font-size:28px;"
+                "font-weight:700;"
+                "color:white;");
 
-    QLabel *subtitle = new QLabel(
-        "Welcome to PharmaTrack Pro");
+    m_mainLayout->addWidget(title);
 
-    subtitle->setStyleSheet(
-        "font-size:14px;"
-        "color:#94A3B8;"
-    );
+    //////////////////////////////////////////////////////
+    /// Statistics
+    //////////////////////////////////////////////////////
 
-    mainLayout->addWidget(title);
-    mainLayout->addWidget(subtitle);
+    auto* statisticsLayout =
+            new QHBoxLayout;
 
-    //-------------------------------------------------------
-    // Statistic Cards
-    //-------------------------------------------------------
+    statisticsLayout->setSpacing(15);
 
-    auto *cardLayout = new QGridLayout;
+    statisticsLayout->addWidget(
+                createStatisticCard(
+                    "Total Scans",
+                    m_totalScansLabel,
+                    "#2563EB"));
 
-    cardLayout->setHorizontalSpacing(20);
-    cardLayout->setVerticalSpacing(20);
+    statisticsLayout->addWidget(
+                createStatisticCard(
+                    "Accepted",
+                    m_acceptedLabel,
+                    "#16A34A"));
 
-    cardLayout->addWidget(
-        createStatisticCard(
-            "Total Scans",
-            m_totalScansLabel,
-            "#2563EB"),
-        0,0);
+    statisticsLayout->addWidget(
+                createStatisticCard(
+                    "Rejected",
+                    m_rejectedLabel,
+                    "#DC2626"));
 
-    cardLayout->addWidget(
-        createStatisticCard(
-            "Accepted",
-            m_acceptedLabel,
-            "#22C55E"),
-        0,1);
+    statisticsLayout->addWidget(
+                createStatisticCard(
+                    "Remaining",
+                    m_remainingLabel,
+                    "#F59E0B"));
 
-    cardLayout->addWidget(
-        createStatisticCard(
-            "Rejected",
-            m_rejectedLabel,
-            "#EF4444"),
-        0,2);
+    m_mainLayout->addLayout(
+                statisticsLayout);
 
-    cardLayout->addWidget(
-        createStatisticCard(
-            "Remaining",
-            m_remainingLabel,
-            "#F59E0B"),
-        0,3);
+    //////////////////////////////////////////////////////
+    /// Information Section
+    //////////////////////////////////////////////////////
 
-    mainLayout->addLayout(cardLayout);
+    auto* informationLayout =
+            new QHBoxLayout;
 
-    //-------------------------------------------------------
-    // Middle Layout
-    //-------------------------------------------------------
+    informationLayout->setSpacing(20);
 
-    auto *middleLayout = new QHBoxLayout;
+    //////////////////////////////////////////////////////
+    /// Scanner Information
+    //////////////////////////////////////////////////////
 
-    middleLayout->setSpacing(20);
+    QFrame* scannerFrame =
+            new QFrame;
 
-    //-------------------------------------------------------
-    // Device Status
-    //-------------------------------------------------------
+    scannerFrame->setObjectName("Card");
 
-    auto *statusFrame = new QFrame;
+    auto* scannerLayout =
+            new QGridLayout(scannerFrame);
 
-    statusFrame->setObjectName("Card");
+    scannerLayout->setHorizontalSpacing(15);
 
-    auto *statusLayout = new QVBoxLayout(statusFrame);
+    scannerLayout->setVerticalSpacing(12);
 
-    QLabel *statusTitle =
-        new QLabel("Device Status");
+    scannerLayout->addWidget(
+                new QLabel("Scanner"),
+                0,0);
 
-    statusTitle->setStyleSheet(
-        "font-size:20px;"
-        "font-weight:600;"
-        "color:white;"
-    );
+    m_scannerNameLabel =
+            new QLabel("--");
 
-    statusLayout->addWidget(statusTitle);
+    scannerLayout->addWidget(
+                m_scannerNameLabel,
+                0,1);
 
-    statusLayout->addSpacing(15);
+    scannerLayout->addWidget(
+                new QLabel("Port"),
+                1,0);
+
+    m_scannerPortLabel =
+            new QLabel("--");
+
+    scannerLayout->addWidget(
+                m_scannerPortLabel,
+                1,1);
+
+    scannerLayout->addWidget(
+                new QLabel("Configuration"),
+                2,0);
+
+    m_scannerConfigurationLabel =
+            new QLabel("--");
+
+    scannerLayout->addWidget(
+                m_scannerConfigurationLabel,
+                2,1);
+
+    scannerLayout->addWidget(
+                new QLabel("Communication"),
+                3,0);
+
+    m_scannerCommunicationLabel =
+            new QLabel("Waiting");
+
+    scannerLayout->addWidget(
+                m_scannerCommunicationLabel,
+                3,1);
+
+    scannerLayout->addWidget(
+                new QLabel("Last Scan"),
+                4,0);
+
+    m_lastScanLabel =
+            new QLabel("--");
+
+    scannerLayout->addWidget(
+                m_lastScanLabel,
+                4,1);
+
+    informationLayout->addWidget(
+                scannerFrame);
+                    //////////////////////////////////////////////////////
+    /// Production Information
+    //////////////////////////////////////////////////////
+
+    QFrame* productionFrame =
+            new QFrame;
+
+    productionFrame->setObjectName("Card");
+
+    auto* productionLayout =
+            new QGridLayout(productionFrame);
+
+    productionLayout->setHorizontalSpacing(15);
+
+    productionLayout->setVerticalSpacing(12);
+
+    productionLayout->addWidget(
+                new QLabel("Current Batch"),
+                0,0);
+
+    m_batchLabel =
+            new QLabel("--");
+
+    productionLayout->addWidget(
+                m_batchLabel,
+                0,1);
+
+    productionLayout->addWidget(
+                new QLabel("Production"),
+                1,0);
+
+    m_productionStateLabel =
+            new QLabel("Idle");
+
+    productionLayout->addWidget(
+                m_productionStateLabel,
+                1,1);
+
+    productionLayout->addWidget(
+                new QLabel("Operator"),
+                2,0);
+
+    m_operatorLabel =
+            new QLabel("Administrator");
+
+    productionLayout->addWidget(
+                m_operatorLabel,
+                2,1);
+
+    productionLayout->addWidget(
+                new QLabel("Clock"),
+                3,0);
+
+    m_clockLabel =
+            new QLabel;
+
+    productionLayout->addWidget(
+                m_clockLabel,
+                3,1);
+
+    informationLayout->addWidget(
+                productionFrame);
+
+    m_mainLayout->addLayout(
+                informationLayout);
+
+    //////////////////////////////////////////////////////
+    /// Device Status
+    //////////////////////////////////////////////////////
+
+    QLabel* deviceTitle =
+            new QLabel("Device Status");
+
+    deviceTitle->setStyleSheet(
+                "font-size:22px;"
+                "font-weight:700;"
+                "color:white;");
+
+    m_mainLayout->addWidget(
+                deviceTitle);
+
+    auto* statusLayout =
+            new QHBoxLayout;
+
+    statusLayout->setSpacing(15);
 
     statusLayout->addWidget(
-        createStatusCard(
-            "Scanner",
-            m_scannerStatusLabel));
+                createStatusCard(
+                    "Scanner",
+                    m_scannerStatusLabel));
 
     statusLayout->addWidget(
-        createStatusCard(
-            "Printer",
-            m_printerStatusLabel));
+                createStatusCard(
+                    "Database",
+                    m_databaseStatusLabel));
 
     statusLayout->addWidget(
-        createStatusCard(
-            "Database",
-            m_databaseStatusLabel));
+                createStatusCard(
+                    "Printer",
+                    m_printerStatusLabel));
 
     statusLayout->addWidget(
-        createStatusCard(
-            "PLC",
-            m_plcStatusLabel));
+                createStatusCard(
+                    "PLC",
+                    m_plcStatusLabel));
 
-    statusLayout->addStretch();
+    m_mainLayout->addLayout(
+                statusLayout);
 
-    middleLayout->addWidget(statusFrame,1);
+    //////////////////////////////////////////////////////
+    /// Activity
+    //////////////////////////////////////////////////////
 
-    //-------------------------------------------------------
-    // Recent Activity
-    //-------------------------------------------------------
-
-    auto *activityFrame = new QFrame;
-
-    activityFrame->setObjectName("Card");
-
-    auto *activityLayout =
-        new QVBoxLayout(activityFrame);
-
-    QLabel *activityTitle =
-        new QLabel("Recent Activity");
+    QLabel* activityTitle =
+            new QLabel("Recent Activity");
 
     activityTitle->setStyleSheet(
-        "font-size:20px;"
-        "font-weight:600;"
-        "color:white;"
-    );
+                "font-size:22px;"
+                "font-weight:700;"
+                "color:white;");
 
-    activityLayout->addWidget(activityTitle);
+    m_mainLayout->addWidget(
+                activityTitle);
 
     m_activityTable =
-        new QTableWidget;
+            new QTableWidget;
 
     m_activityTable->setColumnCount(2);
 
-    QStringList headers;
+    m_activityTable->setHorizontalHeaderLabels(
+                QStringList()
+                << "Time"
+                << "Activity");
 
-    headers << "Time"
-            << "Activity";
+    m_activityTable->horizontalHeader()->
+            setStretchLastSection(true);
 
-    m_activityTable->setHorizontalHeaderLabels(headers);
-
-    m_activityTable->horizontalHeader()
-            ->setStretchLastSection(true);
-
-    m_activityTable->horizontalHeader()
-            ->setSectionResizeMode(
-                QHeaderView::ResizeToContents);
-
-    m_activityTable->verticalHeader()
-            ->hide();
+    m_activityTable->verticalHeader()->
+            setVisible(false);
 
     m_activityTable->setSelectionMode(
-        QAbstractItemView::NoSelection);
+                QAbstractItemView::NoSelection);
 
     m_activityTable->setEditTriggers(
-        QAbstractItemView::NoEditTriggers);
+                QAbstractItemView::NoEditTriggers);
 
     m_activityTable->setAlternatingRowColors(true);
 
-    activityLayout->addWidget(m_activityTable);
+    m_activityTable->setMinimumHeight(300);
 
-    middleLayout->addWidget(activityFrame,2);
+    m_mainLayout->addWidget(
+                m_activityTable);
 
-    mainLayout->addLayout(middleLayout);
-
-    //-------------------------------------------------------
-    // Clock
-    //-------------------------------------------------------
-
-    auto *clockFrame = new QFrame;
-
-    clockFrame->setObjectName("Card");
-
-    auto *clockLayout =
-        new QHBoxLayout(clockFrame);
-
-    QLabel *clockTitle =
-        new QLabel("Current Time");
-
-    clockTitle->setStyleSheet(
-        "font-size:18px;"
-        "font-weight:600;"
-        "color:white;"
-    );
-
-    m_clockLabel =
-        new QLabel;
-
-    m_clockLabel->setAlignment(
-        Qt::AlignRight);
-
-    m_clockLabel->setStyleSheet(
-        "font-size:18px;"
-        "font-weight:600;"
-        "color:#22C55E;"
-    );
-
-    clockLayout->addWidget(clockTitle);
-
-    clockLayout->addStretch();
-
-    clockLayout->addWidget(m_clockLabel);
-
-    mainLayout->addWidget(clockFrame);
-
-    //-------------------------------------------------------
-    // Default Values
-    //-------------------------------------------------------
+    //////////////////////////////////////////////////////
+    /// Default Values
+    //////////////////////////////////////////////////////
 
     setTotalScans(0);
+
     setAcceptedScans(0);
+
     setRejectedScans(0);
+
     setRemainingCodes(0);
 
     setScannerStatus(false);
+
+    setDatabaseStatus(true);
+
     setPrinterStatus(false);
-    setDatabaseStatus(false);
+
     setPLCStatus(false);
 }
+////////////////////////////////////////////////////////
+/// Statistic Card
+////////////////////////////////////////////////////////
 
-
-// ------------- Part 02 ---------------------
-
-
-QFrame* DashboardWindow::createStatisticCard(const QString& title,
-                                             QLabel*& valueLabel,
-                                             const QString& color)
+QFrame* DashboardWindow::createStatisticCard(
+        const QString& title,
+        QLabel*& valueLabel,
+        const QString& color)
 {
-    QFrame* card = new QFrame;
+    QFrame* frame = new QFrame;
 
-    card->setObjectName("StatCard");
+    frame->setObjectName("Card");
 
-    auto* layout = new QVBoxLayout(card);
-
-    layout->setContentsMargins(20,20,20,20);
-
-    layout->setSpacing(10);
+    auto* layout = new QVBoxLayout(frame);
 
     QLabel* titleLabel = new QLabel(title);
 
+    titleLabel->setAlignment(Qt::AlignCenter);
+
     titleLabel->setStyleSheet(
-        "font-size:14px;"
-        "color:#94A3B8;"
-        "font-weight:600;"
-    );
+                "font-size:14px;"
+                "color:#CBD5E1;"
+                "font-weight:600;");
 
     valueLabel = new QLabel("0");
 
     valueLabel->setAlignment(Qt::AlignCenter);
 
-    valueLabel->setStyleSheet(QString(
-        "font-size:36px;"
-        "font-weight:700;"
-        "color:%1;"
-    ).arg(color));
+    valueLabel->setStyleSheet(
+                QString(
+                    "font-size:32px;"
+                    "font-weight:700;"
+                    "color:%1;")
+                .arg(color));
 
     layout->addWidget(titleLabel);
 
-    layout->addStretch();
-
     layout->addWidget(valueLabel);
 
-    layout->addStretch();
-
-    return card;
+    return frame;
 }
 
-QFrame* DashboardWindow::createStatusCard(const QString& device,
-                                          QLabel*& statusLabel)
+////////////////////////////////////////////////////////
+/// Status Card
+////////////////////////////////////////////////////////
+
+QFrame* DashboardWindow::createStatusCard(
+        const QString& device,
+        QLabel*& statusLabel)
 {
-    QFrame* card = new QFrame;
+    QFrame* frame = new QFrame;
 
-    auto* layout = new QHBoxLayout(card);
+    frame->setObjectName("Card");
 
-    layout->setContentsMargins(10,10,10,10);
+    auto* layout = new QVBoxLayout(frame);
 
-    QLabel* deviceLabel = new QLabel(device);
+    QLabel* title =
+            new QLabel(device);
 
-    deviceLabel->setStyleSheet(
-        "font-size:15px;"
-        "font-weight:600;"
-        "color:white;"
-    );
+    title->setAlignment(Qt::AlignCenter);
 
-    statusLabel = new QLabel;
+    title->setStyleSheet(
+                "font-size:16px;"
+                "font-weight:600;");
 
-    statusLabel->setMinimumWidth(90);
+    statusLabel =
+            new QLabel("Offline");
 
     statusLabel->setAlignment(Qt::AlignCenter);
 
-    layout->addWidget(deviceLabel);
+    statusLabel->setStyleSheet(
+                "font-size:18px;"
+                "font-weight:700;"
+                "color:#EF4444;");
 
-    layout->addStretch();
+    layout->addWidget(title);
 
     layout->addWidget(statusLabel);
 
-    return card;
+    return frame;
 }
+
+////////////////////////////////////////////////////////
+/// Theme
+////////////////////////////////////////////////////////
 
 void DashboardWindow::applyTheme()
 {
     setStyleSheet(R"(
 
-DashboardWindow
-{
-    background:#0F172A;
-}
-
 QFrame#Card
 {
     background:#1E293B;
-    border-radius:12px;
     border:1px solid #334155;
-}
-
-QFrame#StatCard
-{
-    background:#1E293B;
     border-radius:12px;
-    border:1px solid #334155;
-}
-
-QFrame#StatCard:hover
-{
-    background:#26364A;
 }
 
 QTableWidget
 {
     background:#1E293B;
     color:white;
-
-    border:none;
-
+    border:1px solid #334155;
+    border-radius:10px;
     gridline-color:#334155;
-
-    selection-background-color:#2563EB;
-
-    alternate-background-color:#223045;
 }
 
 QHeaderView::section
 {
-    background:#334155;
-
+    background:#0F172A;
     color:white;
-
     border:none;
-
     padding:8px;
-
     font-weight:600;
 }
 
-QScrollBar:vertical
+QScrollArea
 {
-    background:#1E293B;
-
-    width:12px;
-
     border:none;
-}
-
-QScrollBar::handle:vertical
-{
-    background:#475569;
-
-    border-radius:6px;
-}
-
-QScrollBar::handle:vertical:hover
-{
-    background:#64748B;
-}
-
-QScrollBar::add-line:vertical,
-QScrollBar::sub-line:vertical
-{
-    height:0px;
-}
-
-QScrollBar:horizontal
-{
-    height:0px;
 }
 
 )");
 }
 
-
-/// -------------- Part 03 -------------------
-
+////////////////////////////////////////////////////////
+/// Statistics
+////////////////////////////////////////////////////////
 
 void DashboardWindow::setTotalScans(int value)
 {
-    if (m_totalScansLabel)
-        m_totalScansLabel->setText(QString::number(value));
+    m_totalScansLabel->setNum(value);
 }
 
 void DashboardWindow::setAcceptedScans(int value)
 {
-    if (m_acceptedLabel)
-        m_acceptedLabel->setText(QString::number(value));
+    m_acceptedLabel->setNum(value);
 }
 
 void DashboardWindow::setRejectedScans(int value)
 {
-    if (m_rejectedLabel)
-        m_rejectedLabel->setText(QString::number(value));
+    m_rejectedLabel->setNum(value);
 }
 
 void DashboardWindow::setRemainingCodes(int value)
 {
-    if (m_remainingLabel)
-        m_remainingLabel->setText(QString::number(value));
+    m_remainingLabel->setNum(value);
 }
+
+////////////////////////////////////////////////////////
+/// Device Status
+////////////////////////////////////////////////////////
 
 void DashboardWindow::setScannerStatus(bool connected)
 {
-    if (!m_scannerStatusLabel)
-        return;
-
-    if (connected)
-    {
-        m_scannerStatusLabel->setText("● ONLINE");
-        m_scannerStatusLabel->setStyleSheet(
-            "background:#22C55E;"
-            "color:white;"
-            "padding:6px 12px;"
-            "border-radius:8px;"
-            "font-weight:600;"
-        );
-    }
-    else
-    {
-        m_scannerStatusLabel->setText("● OFFLINE");
-        m_scannerStatusLabel->setStyleSheet(
-            "background:#EF4444;"
-            "color:white;"
-            "padding:6px 12px;"
-            "border-radius:8px;"
-            "font-weight:600;"
-        );
-    }
+    m_scannerStatusLabel->setText(
+                connected ?
+                "🟢 Online" :
+                "🔴 Offline");
 }
 
 void DashboardWindow::setPrinterStatus(bool connected)
 {
-    if (!m_printerStatusLabel)
-        return;
-
-    if (connected)
-    {
-        m_printerStatusLabel->setText("● ONLINE");
-        m_printerStatusLabel->setStyleSheet(
-            "background:#22C55E;"
-            "color:white;"
-            "padding:6px 12px;"
-            "border-radius:8px;"
-            "font-weight:600;"
-        );
-    }
-    else
-    {
-        m_printerStatusLabel->setText("● OFFLINE");
-        m_printerStatusLabel->setStyleSheet(
-            "background:#EF4444;"
-            "color:white;"
-            "padding:6px 12px;"
-            "border-radius:8px;"
-            "font-weight:600;"
-        );
-    }
+    m_printerStatusLabel->setText(
+                connected ?
+                "🟢 Online" :
+                "🔴 Offline");
 }
 
 void DashboardWindow::setDatabaseStatus(bool connected)
 {
-    if (!m_databaseStatusLabel)
-        return;
-
-    if (connected)
-    {
-        m_databaseStatusLabel->setText("● ONLINE");
-        m_databaseStatusLabel->setStyleSheet(
-            "background:#22C55E;"
-            "color:white;"
-            "padding:6px 12px;"
-            "border-radius:8px;"
-            "font-weight:600;"
-        );
-    }
-    else
-    {
-        m_databaseStatusLabel->setText("● OFFLINE");
-        m_databaseStatusLabel->setStyleSheet(
-            "background:#EF4444;"
-            "color:white;"
-            "padding:6px 12px;"
-            "border-radius:8px;"
-            "font-weight:600;"
-        );
-    }
+    m_databaseStatusLabel->setText(
+                connected ?
+                "🟢 Online" :
+                "🔴 Offline");
 }
 
 void DashboardWindow::setPLCStatus(bool connected)
 {
-    if (!m_plcStatusLabel)
-        return;
-
-    if (connected)
-    {
-        m_plcStatusLabel->setText("● ONLINE");
-        m_plcStatusLabel->setStyleSheet(
-            "background:#22C55E;"
-            "color:white;"
-            "padding:6px 12px;"
-            "border-radius:8px;"
-            "font-weight:600;"
-        );
-    }
-    else
-    {
-        m_plcStatusLabel->setText("● OFFLINE");
-        m_plcStatusLabel->setStyleSheet(
-            "background:#EF4444;"
-            "color:white;"
-            "padding:6px 12px;"
-            "border-radius:8px;"
-            "font-weight:600;"
-        );
-    }
+    m_plcStatusLabel->setText(
+                connected ?
+                "🟢 Online" :
+                "🔴 Offline");
 }
 
-void DashboardWindow::addActivity(const QString& activity)
-{
-    if (!m_activityTable)
-        return;
+////////////////////////////////////////////////////////
+/// Scanner Information
+////////////////////////////////////////////////////////
 
-    int row = m_activityTable->rowCount();
+void DashboardWindow::setScannerName(
+        const QString& name)
+{
+    m_scannerNameLabel->setText(name);
+}
+
+void DashboardWindow::setScannerPort(
+        const QString& port)
+{
+    m_scannerPortLabel->setText(port);
+}
+
+void DashboardWindow::setScannerConfiguration(
+        const QString& configuration)
+{
+    m_scannerConfigurationLabel->setText(configuration);
+}
+
+void DashboardWindow::setScannerCommunication(
+        const QString& communication)
+{
+    m_scannerCommunicationLabel->setText(communication);
+}
+
+void DashboardWindow::setLastScan(
+        const QString& code)
+{
+    m_lastScanLabel->setText(code);
+}
+
+////////////////////////////////////////////////////////
+/// Production
+////////////////////////////////////////////////////////
+
+void DashboardWindow::setCurrentBatch(
+        const QString& batch)
+{
+    m_batchLabel->setText(batch);
+}
+
+void DashboardWindow::setProductionState(
+        const QString& state)
+{
+    m_productionStateLabel->setText(state);
+}
+
+void DashboardWindow::setOperator(
+        const QString& name)
+{
+    m_operatorLabel->setText(name);
+}
+
+////////////////////////////////////////////////////////
+/// Activity
+////////////////////////////////////////////////////////
+
+void DashboardWindow::addActivity(
+        const QString& activity)
+{
+    int row =
+            m_activityTable->rowCount();
 
     m_activityTable->insertRow(row);
 
-    QString time =
-        QTime::currentTime().toString("hh:mm:ss");
+    m_activityTable->setItem(
+                row,
+                0,
+                new QTableWidgetItem(
+                    QTime::currentTime().toString("hh:mm:ss")));
 
-    auto* timeItem =
-        new QTableWidgetItem(time);
-
-    auto* activityItem =
-        new QTableWidgetItem(activity);
-
-    timeItem->setForeground(Qt::white);
-    activityItem->setForeground(Qt::white);
-
-    m_activityTable->setItem(row,0,timeItem);
-    m_activityTable->setItem(row,1,activityItem);
+    m_activityTable->setItem(
+                row,
+                1,
+                new QTableWidgetItem(activity));
 
     m_activityTable->scrollToBottom();
 }
 
+////////////////////////////////////////////////////////
+/// Clock
+////////////////////////////////////////////////////////
+
 void DashboardWindow::updateClock()
 {
-    if (!m_clockLabel)
-        return;
-
-    QString dateTime =
-        QDateTime::currentDateTime()
-        .toString("dddd, dd MMMM yyyy\nhh:mm:ss AP");
-
-    m_clockLabel->setText(dateTime);
-}
-
-} // namespace PharmaTrack
-
+    m_clockLabel->setText(
+                QDateTime::currentDateTime()
+                .toString("dd MMM yyyy  hh:mm:ss AP"));
+}}

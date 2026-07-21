@@ -51,23 +51,43 @@ set(SOURCES
     # Hardware
     Hardware/SerialPortManager.cpp
     Hardware/ScannerManager.cpp
+    # Hardware
+Hardware/Drivers/ScannerDriver.cpp
+Hardware/Drivers/EthernetDriver.cpp
+Hardware/Drivers/SerialDriver.cpp
 
-    # Services
-    Services/ScannerService.cpp
-    Services/VerificationService.cpp
+# Services
+Services/ScannerService.cpp
+Services/VerificationService.cpp
+Services/ScannerDiscoveryService.cpp
+Services/ScannerConfigurationService.cpp
+Services/GeneratorService.cpp
 
-    # Models
-    Models/SerialNumber.cpp
-    Models/ScanLog.cpp
-    Models/Batch.cpp
-    Models/Product.cpp
-    Models/User.cpp
-    Models/Report.cpp
+# Models
+Models/ScannerInfo.cpp
+Models/SerialNumber.cpp
+Models/ScanLog.cpp
+Models/Batch.cpp
+Models/Product.cpp
+Models/User.cpp
+Models/Report.cpp
+Models/ScannerInfo.cpp
+Models/ScannerConfiguration.cpp
+Models/SerialNumber.cpp
+Models/ScanLog.cpp
+Models/Batch.cpp
+Models/Product.cpp
+Models/User.cpp
+Models/Report.cpp
+Models/GenerationResult.cpp
 
     # Utils
     Utils/PathManager.cpp
     Utils/FileManager.cpp
     Utils/JsonManager.cpp
+    Utils/TXTExporter.cpp
+    Utils/CSVExporter.cpp
+Utils/RandomGenerator.cpp
 )
 
 set(HEADERS
@@ -86,10 +106,16 @@ set(HEADERS
     # Hardware
     Hardware/SerialPortManager.h
     Hardware/ScannerManager.h
+Hardware/Drivers/ScannerDriver.h
+Hardware/Drivers/EthernetDriver.h
+Hardware/Drivers/SerialDriver.h
 
     # Services
     Services/ScannerService.h
     Services/VerificationService.h
+    Services/ScannerDiscoveryService.h
+Services/ScannerConfigurationService.h
+Services/GeneratorService.h
 
     # Models
     Models/SerialNumber.h
@@ -98,21 +124,22 @@ set(HEADERS
     Models/Product.h
     Models/User.h
     Models/Report.h
+Models/ScannerInfo.h
+Models/ScannerConfiguration.h
+Models/GenerationResult.h
 
     # Utils
     Utils/PathManager.h
     Utils/FileManager.h
     Utils/JsonManager.h
-)
-
-set(UIS
-    UI/MainWindow.ui
+    Utils/CSVExporter.h
+Utils/TXTExporter.h
+Utils/RandomGenerator.h
 )
 
 qt_add_executable(PharmaTrackPro
     ${SOURCES}
     ${HEADERS}
-    ${UIS}
 )
 
 target_link_libraries(PharmaTrackPro PRIVATE

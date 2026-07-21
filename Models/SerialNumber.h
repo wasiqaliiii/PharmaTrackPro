@@ -1,72 +1,58 @@
-#pragma once
+#ifndef PHARMATRACK_SERIALNUMBER_H
+#define PHARMATRACK_SERIALNUMBER_H
 
 #include <QString>
 #include <QDateTime>
 
 namespace PharmaTrack
 {
-
 enum class SerialStatus
 {
-    NotScanned,
+    Pending,
     Valid,
-    Invalid,
-    Duplicate
+    Duplicate,
+    Invalid
 };
-
 class SerialNumber
 {
 public:
-
     SerialNumber();
-
-    explicit SerialNumber(const QString& serialNumber);
-
-    // Getters
-
-    QString serialNumber() const;
+SerialNumber(const QString &serial);
+    QString serial() const;
+    void setSerial(const QString &serial);
 
     QString batchNumber() const;
+    void setBatchNumber(const QString &batchNumber);
 
-    QString productCode() const;
+    QString productName() const;
+    void setProductName(const QString &productName);
 
+    QString prefix() const;
+    void setPrefix(const QString &prefix);
+
+    int serialLength() const;
+    void setSerialLength(int length);
+
+    QDateTime generatedAt() const;
+    void setGeneratedAt(const QDateTime &dateTime);
     bool isScanned() const;
 
-    SerialStatus status() const;
+void markScanned(SerialStatus status);
 
-    const QDateTime& scanTime() const;
-
-    // Setters
-
-    void setSerialNumber(const QString& serialNumber);
-
-    void setBatchNumber(const QString& batchNumber);
-
-    void setProductCode(const QString& productCode);
-
-    void setScanned(bool scanned);
-
-    void setStatus(SerialStatus status);
-
-    void setScanTime(const QDateTime& scanTime);
-
-    // Helper
-
-    void markScanned(SerialStatus status);
+SerialStatus status() const;
 
 private:
-
-    QString m_serialNumber;
-
+    QString m_serial;
     QString m_batchNumber;
-
-    QString m_productCode;
-
+    QString m_productName;
+    QString m_prefix;
+    int m_serialLength;
+    QDateTime m_generatedAt;
     bool m_scanned;
 
-    SerialStatus m_status;
-
-    QDateTime m_scanTime;
+SerialStatus m_status;
 };
 
 }
+
+#endif // PHARMATRACK_SERIALNUMBER_H

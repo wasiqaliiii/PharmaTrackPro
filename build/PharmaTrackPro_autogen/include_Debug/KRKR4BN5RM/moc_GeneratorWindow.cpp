@@ -38,10 +38,32 @@ template <> constexpr inline auto PharmaTrack::GeneratorWindow::qt_create_metaob
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "PharmaTrack::GeneratorWindow"
+        "PharmaTrack::GeneratorWindow",
+        "onGenerateClicked",
+        "",
+        "onExportCsvClicked",
+        "onExportTxtClicked",
+        "onGenerationStarted",
+        "onGenerationFinished",
+        "onProgressChanged",
+        "percentage"
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Slot 'onGenerateClicked'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onExportCsvClicked'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onExportTxtClicked'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onGenerationStarted'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onGenerationFinished'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onProgressChanged'
+        QtMocHelpers::SlotData<void(int)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 8 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -63,10 +85,17 @@ Q_CONSTINIT const QMetaObject PharmaTrack::GeneratorWindow::staticMetaObject = {
 void PharmaTrack::GeneratorWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     auto *_t = static_cast<GeneratorWindow *>(_o);
-    (void)_t;
-    (void)_c;
-    (void)_id;
-    (void)_a;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->onGenerateClicked(); break;
+        case 1: _t->onExportCsvClicked(); break;
+        case 2: _t->onExportTxtClicked(); break;
+        case 3: _t->onGenerationStarted(); break;
+        case 4: _t->onGenerationFinished(); break;
+        case 5: _t->onProgressChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObject *PharmaTrack::GeneratorWindow::metaObject() const
@@ -85,6 +114,18 @@ void *PharmaTrack::GeneratorWindow::qt_metacast(const char *_clname)
 int PharmaTrack::GeneratorWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 6)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 6;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 6)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 6;
+    }
     return _id;
 }
 QT_WARNING_POP
