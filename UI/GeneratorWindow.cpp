@@ -20,6 +20,7 @@
 #include "../Utils/TXTExporter.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QDateTime>
 
 namespace PharmaTrack
 {
@@ -445,12 +446,12 @@ Batch GeneratorWindow::createBatch() const
 
     batch.setPrefix(
                 m_prefixEdit->text());
-
+    batch.setGeneratedAt(QDateTime::currentDateTime());
     if(m_length15Radio->isChecked())
         batch.setSerialLength(15);
     else
         batch.setSerialLength(21);
-
+batch.setGeneratedAt(QDateTime::currentDateTime());
     return batch;
 }
 void GeneratorWindow::onGenerationStarted()
@@ -575,7 +576,7 @@ void GeneratorWindow::onGenerateClicked()
 
     Batch batch =
             createBatch();
-
+m_currentBatch = batch;
     QString errorMessage;
 
 
@@ -618,9 +619,10 @@ void GeneratorWindow::onExportCsvClicked()
     QString errorMessage;
 
     if(!CSVExporter::exportFile(
-                fileName,
-                m_generationResult.serials,
-                errorMessage))
+        fileName,
+        m_currentBatch,
+        m_generationResult.serials,
+        errorMessage))
     {
         QMessageBox::critical(
                     this,
@@ -651,9 +653,10 @@ void GeneratorWindow::onExportTxtClicked()
     QString errorMessage;
 
     if(!TXTExporter::exportFile(
-                fileName,
-                m_generationResult.serials,
-                errorMessage))
+        fileName,
+        m_currentBatch,
+        m_generationResult.serials,
+        errorMessage))
     {
         QMessageBox::critical(
                     this,

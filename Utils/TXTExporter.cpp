@@ -1,5 +1,6 @@
 #include "TXTExporter.h"
 
+#include "../Models/Batch.h"
 #include "../Models/SerialNumber.h"
 
 #include <QFile>
@@ -10,6 +11,7 @@ namespace PharmaTrack
 
 bool TXTExporter::exportFile(
         const QString &fileName,
+        const Batch &batch,
         const QList<SerialNumber> &serials,
         QString &errorMessage)
 {
@@ -18,13 +20,26 @@ bool TXTExporter::exportFile(
     if(!file.open(QIODevice::WriteOnly |
                   QIODevice::Text))
     {
-        errorMessage =
-                file.errorString();
-
+        errorMessage = file.errorString();
         return false;
     }
 
     QTextStream stream(&file);
+
+    // Batch Information
+    stream << "Batch Number : " << batch.batchNumber() << "\n";
+    stream << "Product Name : " << batch.productName() << "\n";
+    stream << "Quantity     : " << batch.quantity() << "\n";
+    stream << "Serial Length: " << batch.serialLength() << "\n";
+    stream << "Prefix       : " << batch.prefix() << "\n";
+stream << "Generated At : "
+       << batch.generatedAt().toString("yyyy-MM-dd hh:mm:ss")
+       << "\n\n";
+
+    stream << "\n";
+    stream << "----------------------------------------\n";
+    stream << "Serial Numbers\n";
+    stream << "----------------------------------------\n";
 
     for(const SerialNumber &serial : serials)
     {

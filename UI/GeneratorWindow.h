@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "../Models/GenerationResult.h"
-
+#include "../Models/Batch.h"
 class QLabel;
 class QLineEdit;
 class QPushButton;
@@ -18,154 +18,155 @@ class QSpinBox;
 namespace PharmaTrack
 {
 
-class GeneratorService;
-class Batch;
-class SerialNumber;
+    class GeneratorService;
+    class Batch;
+    class SerialNumber;
 
-class GeneratorWindow : public QWidget
-{
-    Q_OBJECT
+    class GeneratorWindow : public QWidget
+    {
+        Q_OBJECT
 
-public:
-    explicit GeneratorWindow(QWidget *parent = nullptr);
-    ~GeneratorWindow();
+    public:
+        explicit GeneratorWindow(QWidget *parent = nullptr);
+        ~GeneratorWindow();
 
-private slots:
+    private slots:
 
-    void onGenerateClicked();
+        void onGenerateClicked();
 
-    void onExportCsvClicked();
+        void onExportCsvClicked();
 
-    void onExportTxtClicked();
+        void onExportTxtClicked();
 
-    void onGenerationStarted();
+        void onGenerationStarted();
 
-    void onGenerationFinished();
+        void onGenerationFinished();
 
-    void onProgressChanged(int percentage);
+        void onProgressChanged(int percentage);
 
-private:
+    private:
+        ////////////////////////////////////////////////////////
+        /// UI Creation
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// UI Creation
-    ////////////////////////////////////////////////////////
+        void createWidgets();
 
-    void createWidgets();
+        void createLayouts();
 
-    void createLayouts();
+        void createConnections();
 
-    void createConnections();
+        void applyStyle();
 
-    void applyStyle();
+        ////////////////////////////////////////////////////////
+        /// Helper Functions
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Helper Functions
-    ////////////////////////////////////////////////////////
+        bool validateInput();
 
-    bool validateInput();
+        Batch createBatch() const;
 
-    Batch createBatch() const;
+        void populatePreview();
 
-    void populatePreview();
+        void updateSummary();
 
-    void updateSummary();
+        void clearResults();
 
-    void clearResults();
+        void enableExportButtons(bool enable);
 
-    void enableExportButtons(bool enable);
+        ////////////////////////////////////////////////////////
+        /// Main Layout
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Main Layout
-    ////////////////////////////////////////////////////////
+        QScrollArea *m_scrollArea;
 
-    QScrollArea* m_scrollArea;
+        QWidget *m_containerWidget;
 
-    QWidget* m_containerWidget;
+        ////////////////////////////////////////////////////////
+        /// Header
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Header
-    ////////////////////////////////////////////////////////
+        QLabel *m_titleLabel;
 
-    QLabel* m_titleLabel;
+        ////////////////////////////////////////////////////////
+        /// Batch Information
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Batch Information
-    ////////////////////////////////////////////////////////
+        QGroupBox *m_batchGroup;
 
-    QGroupBox* m_batchGroup;
+        QLabel *m_batchNumberLabel;
+        QLabel *m_productNameLabel;
+        QLabel *m_quantityLabel;
+        QLabel *m_prefixLabel;
 
-    QLabel* m_batchNumberLabel;
-    QLabel* m_productNameLabel;
-    QLabel* m_quantityLabel;
-    QLabel* m_prefixLabel;
+        QLineEdit *m_batchNumberEdit;
+        QLineEdit *m_productNameEdit;
+        QSpinBox *m_quantitySpinBox;
+        QLineEdit *m_prefixEdit;
 
-    QLineEdit* m_batchNumberEdit;
-    QLineEdit* m_productNameEdit;
-    QSpinBox* m_quantitySpinBox;
-    QLineEdit* m_prefixEdit;
+        ////////////////////////////////////////////////////////
+        /// Serial Options
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Serial Options
-    ////////////////////////////////////////////////////////
+        QGroupBox *m_serialGroup;
 
-    QGroupBox* m_serialGroup;
+        QRadioButton *m_length15Radio;
+        QRadioButton *m_length21Radio;
 
-    QRadioButton* m_length15Radio;
-    QRadioButton* m_length21Radio;
+        QButtonGroup *m_lengthGroup;
 
-    QButtonGroup* m_lengthGroup;
+        ////////////////////////////////////////////////////////
+        /// Actions
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Actions
-    ////////////////////////////////////////////////////////
+        QPushButton *m_generateButton;
 
-    QPushButton* m_generateButton;
+        QPushButton *m_exportCsvButton;
 
-    QPushButton* m_exportCsvButton;
+        QPushButton *m_exportTxtButton;
 
-    QPushButton* m_exportTxtButton;
+        ////////////////////////////////////////////////////////
+        /// Progress
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Progress
-    ////////////////////////////////////////////////////////
+        QGroupBox *m_progressGroup;
 
-    QGroupBox* m_progressGroup;
+        QLabel *m_progressLabel;
 
-    QLabel* m_progressLabel;
+        QProgressBar *m_progressBar;
 
-    QProgressBar* m_progressBar;
+        ////////////////////////////////////////////////////////
+        /// Summary
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Summary
-    ////////////////////////////////////////////////////////
+        QGroupBox *m_summaryGroup;
 
-    QGroupBox* m_summaryGroup;
+        QLabel *m_batchSummaryLabel;
+        QLabel *m_productSummaryLabel;
+        QLabel *m_quantitySummaryLabel;
+        QLabel *m_prefixSummaryLabel;
+        QLabel *m_lengthSummaryLabel;
+        QLabel *m_generatedSummaryLabel;
+        QLabel *m_timeSummaryLabel;
+        QLabel *m_speedSummaryLabel;
 
-    QLabel* m_batchSummaryLabel;
-    QLabel* m_productSummaryLabel;
-    QLabel* m_quantitySummaryLabel;
-    QLabel* m_prefixSummaryLabel;
-    QLabel* m_lengthSummaryLabel;
-    QLabel* m_generatedSummaryLabel;
-    QLabel* m_timeSummaryLabel;
-    QLabel* m_speedSummaryLabel;
+        ////////////////////////////////////////////////////////
+        /// Preview
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Preview
-    ////////////////////////////////////////////////////////
+        QGroupBox *m_previewGroup;
 
-    QGroupBox* m_previewGroup;
+        QTableWidget *m_previewTable;
 
-    QTableWidget* m_previewTable;
+        ////////////////////////////////////////////////////////
+        /// Data
+        ////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////
-    /// Data
-    ////////////////////////////////////////////////////////
+        GeneratorService *m_generatorService;
 
-    GeneratorService* m_generatorService;
+        GenerationResult m_generationResult;
 
-    GenerationResult m_generationResult;
-};
+        Batch m_currentBatch;
+    };
 
 }
 

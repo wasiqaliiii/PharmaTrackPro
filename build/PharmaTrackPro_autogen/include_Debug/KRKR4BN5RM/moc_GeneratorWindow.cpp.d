@@ -222,5 +222,6 @@ D:/Megatronics/PharmaTrackPro/build/PharmaTrackPro_autogen/include_Debug/KRKR4BN
   C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.11.1/msvc2022_64/include/QtWidgets/qwidget.h \
+  D:/Megatronics/PharmaTrackPro/Models/Batch.h \
   D:/Megatronics/PharmaTrackPro/Models/GenerationResult.h \
   D:/Megatronics/PharmaTrackPro/Models/SerialNumber.h
